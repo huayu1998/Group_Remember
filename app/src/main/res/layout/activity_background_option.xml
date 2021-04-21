@@ -24,7 +24,7 @@
         app:layout_constraintHorizontal_bias="0.007"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background1" />
+        app:srcCompat="@drawable/background_1" />
 
     <ImageView
         android:id="@+id/b3"
@@ -37,7 +37,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b0"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background2" />
+        app:srcCompat="@drawable/background_2" />
 
     <ImageView
         android:id="@+id/b2"
@@ -48,7 +48,7 @@
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background3" />
+        app:srcCompat="@drawable/background_3" />
 
     <ImageView
         android:id="@+id/b1"
@@ -57,7 +57,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background4" />
+        app:srcCompat="@drawable/background_4" />
 
     <ImageView
         android:id="@+id/b5"
@@ -70,7 +70,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b2"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/background7" />
+        app:srcCompat="@drawable/background_7" />
 
     <ImageView
         android:id="@+id/b4"
@@ -81,6 +81,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b1"
         app:layout_constraintVertical_bias="0.251"
-        app:srcCompat="@drawable/background9" />
+        app:srcCompat="@drawable/background_9" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
