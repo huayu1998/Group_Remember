@@ -8,6 +8,8 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
 public class Day extends AppCompatActivity {
 
     TextView title;
@@ -15,6 +17,8 @@ public class Day extends AppCompatActivity {
     TextView time;
     TextView message;
     Button button;
+    FloatingActionButton music;
+    Button editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +35,24 @@ public class Day extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Day.this, EditEventOption.class);
+                startActivity(intent);
+            }
+        });
+
+        music = (FloatingActionButton)findViewById(R.id.musicFab);
+
+        music.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Day.this, PlayMusic.class);
+                startActivity(intent);
+            }
+        });
+        editText = (Button)findViewById(R.id.editTextb);
+        editText.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(Day.this, EventEdit.class);
                 startActivity(intent);
             }
         });

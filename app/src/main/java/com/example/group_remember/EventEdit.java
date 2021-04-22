@@ -1,43 +1,34 @@
 package com.example.group_remember;
 
+import androidx.appcompat.app.AppCompatActivity;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.ImageView;
-import android.widget.TextView;
 
-import androidx.appcompat.app.AppCompatActivity;
+public class EventEdit extends AppCompatActivity {
 
-public class EditTextForEvent extends AppCompatActivity{
-
+    EditText year, month, day, eventContent;
     Button finish;
-    TextView name;
-    EditText editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_edit_text);
+        setContentView(R.layout.activity_event_edit);
 
+        year = (EditText) findViewById(R.id.year);
+        month = (EditText) findViewById(R.id.month);
+        day = (EditText) findViewById(R.id.day);
+        eventContent = (EditText) findViewById(R.id.eventContent);
         finish = (Button) findViewById(R.id.finish);
-        name = (TextView) findViewById(R.id.eventName);
-        editText = (EditText) findViewById(R.id.editTextContent);
 
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditTextForEvent.this, Day.class);
-                startActivity(intent);
+                finish();
             }
         });
-
     }
 }
-
-
-
-
-
-
