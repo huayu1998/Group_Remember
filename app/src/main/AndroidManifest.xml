@@ -13,6 +13,8 @@
         <activity android:name=".Day" />
         <activity android:name=".PlayMusic" />
         <activity android:name=".ChooseDate" />
+        <activity android:name=".BackgroundOption" />
+        <activity android:name=".EditTextForEvent" />
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
