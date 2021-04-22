@@ -31,9 +31,7 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Day.class);
-                //String data = song.getSelectedItem().toString();
-                //intent.putExtra("songname", data);
+                Intent intent = new Intent(MainActivity.this, ChooseDate.class);
                 startActivity(intent);
             }
         });
@@ -41,8 +39,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Day.class);
-                //String data = song.getSelectedItem().toString();
-                //intent.putExtra("songname", data);
                 startActivity(intent);
             }
         });

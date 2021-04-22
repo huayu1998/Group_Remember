@@ -6,7 +6,9 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-public class EventOption extends AppCompatActivity implements View.OnClickListener {
+public class EventOption extends AppCompatActivity {
+
+    // implements View.OnClickListener
 
     Button back,done,addTextContent,chooseDate,backgroundOption,addMusic;
     @Override
@@ -20,6 +22,7 @@ public class EventOption extends AppCompatActivity implements View.OnClickListen
         chooseDate = (Button) findViewById(R.id.ChooseDate);
         backgroundOption = (Button) findViewById(R.id.BackgroundOption);
         addMusic = (Button) findViewById(R.id.AddMusic);
+        /*
         back.setOnClickListener(this);
         done.setOnClickListener(this);
         addTextContent.setOnClickListener(this);
@@ -27,8 +30,11 @@ public class EventOption extends AppCompatActivity implements View.OnClickListen
         backgroundOption.setOnClickListener(this);
         addMusic.setOnClickListener(this);
 
+         */
+
     }
 
+    /*
     @Override
     public void onClick(View view) {
         switch(view.getId()){
@@ -47,8 +53,13 @@ public class EventOption extends AppCompatActivity implements View.OnClickListen
         }
     }
 
+     */
+
+    /*
     @Override
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
     }
+
+     */
 }

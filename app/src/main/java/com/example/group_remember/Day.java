@@ -15,7 +15,7 @@ public class Day extends AppCompatActivity {
     TextView time;
     TextView message;
     Button button;
-    //Button detail;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,11 +30,11 @@ public class Day extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Day.this, Day.class);
-                //String data = song.getSelectedItem().toString();
-                //intent.putExtra("songname", data);
+                Intent intent = new Intent(Day.this, EditEventOption.class);
                 startActivity(intent);
             }
         });
+
     }
+
 }
