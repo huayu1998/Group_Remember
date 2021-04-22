@@ -60,8 +60,8 @@
 
     <EditText
         android:id="@+id/eventContent"
-        android:layout_width="281dp"
-        android:layout_height="55dp"
+        android:layout_width="322dp"
+        android:layout_height="248dp"
         android:layout_marginTop="264dp"
         android:ems="10"
         android:gravity="start|top"
@@ -76,9 +76,10 @@
         android:id="@+id/finish"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="480dp"
+        android:layout_marginTop="564dp"
         android:text="Finish"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

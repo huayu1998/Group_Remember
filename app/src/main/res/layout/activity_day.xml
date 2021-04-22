@@ -11,7 +11,7 @@
         android:id="@+id/titleT"
         android:layout_width="191dp"
         android:layout_height="35dp"
-        android:text="Title of th Day"
+        android:text="Title of the Day"
         android:textColor="#000000"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -36,11 +36,11 @@
         android:id="@+id/timeT"
         android:layout_width="240dp"
         android:layout_height="25dp"
-        android:layout_marginTop="112dp"
+        android:layout_marginTop="92dp"
         android:text="4/20/2021   Wednesday"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/titleT" />
 
@@ -57,11 +57,12 @@
 
     <ImageView
         android:id="@+id/photoiv"
-        android:layout_width="281dp"
-        android:layout_height="265dp"
-        android:layout_marginBottom="188dp"
+        android:layout_width="240dp"
+        android:layout_height="236dp"
+        android:layout_marginBottom="100dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         tools:srcCompat="@tools:sample/avatars" />
 
@@ -69,10 +70,10 @@
         android:id="@+id/editb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_marginTop="32dp"
         android:text="Edit"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/photoiv" />
 
@@ -87,9 +88,9 @@
 
     <Button
         android:id="@+id/editTextb"
-        android:layout_width="97dp"
-        android:layout_height="35dp"
-        android:layout_marginTop="8dp"
+        android:layout_width="99dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="24dp"
         android:text="edit"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
