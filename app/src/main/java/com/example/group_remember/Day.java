@@ -16,9 +16,9 @@ public class Day extends AppCompatActivity {
     TextView length;
     TextView time;
     TextView message;
-    Button chooseBackground;
+    Button button;
     FloatingActionButton music;
-    Button editEvent;
+    Button editText;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,13 +29,13 @@ public class Day extends AppCompatActivity {
         length = (TextView)findViewById(R.id.lengthT);
         time = (TextView)findViewById(R.id.timeT);
         message = (TextView)findViewById(R.id.messageT);
-        editEvent = (Button)findViewById(R.id.editTextb);
-        chooseBackground = (Button)findViewById(R.id.photo);
+        button = (Button)findViewById(R.id.editb);
 
-        chooseBackground.setOnClickListener(new View.OnClickListener() {
+
+        button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Day.this, BackgroundOption.class);
+                Intent intent = new Intent(Day.this, EditEventOption.class);
                 startActivity(intent);
             }
         });
@@ -49,8 +49,8 @@ public class Day extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-
-        editEvent.setOnClickListener(new View.OnClickListener() {
+        editText = (Button)findViewById(R.id.editTextb);
+        editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(Day.this, EventEdit.class);

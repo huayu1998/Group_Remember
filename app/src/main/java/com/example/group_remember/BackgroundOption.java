@@ -48,8 +48,8 @@ public class BackgroundOption extends AppCompatActivity {
         backGround4 = (ImageView) findViewById(R.id.b4);
         backGround5 = (ImageView) findViewById(R.id.b5);
 
-
-
+        Date date = new Date();
+        date.setImage(R.id.b0);
 
     }
 

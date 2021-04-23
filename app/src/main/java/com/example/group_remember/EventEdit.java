@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 public class EventEdit extends AppCompatActivity {
 
@@ -33,13 +34,15 @@ public class EventEdit extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!setTopicNDescription()) {
-
+                    Toast.makeText(EventEdit.this, "Please enter title and description.", Toast.LENGTH_LONG).show();
                 }
                 else if (!setDate()) {
-
+                    Toast.makeText(EventEdit.this, "Please enter valid date.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    //getIntent().putExtra("",date);
+                    //getIntent().putExtra("DateDetails", );
+                    //getIntent().putExtra("DateDetails", );
+                    //getIntent().putExtra("DateDetails", );
                     finish();
                 }
             }
