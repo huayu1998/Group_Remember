@@ -78,10 +78,14 @@ public class BackgroundOption extends AppCompatActivity {
             case R.id.rb1:
                 if(checked)
                     date.setImage(R.id.b0);
+                    RadioButton rb = (RadioButton)findViewById(R.id.rb2);
+                    rb.setChecked(!checked);
                 break;
             case R.id.rb2:
                 if(checked)
                     date.setImage(R.id.b1);
+                    RadioButton rb2 = (RadioButton)findViewById(R.id.rb1);
+                    rb2.setChecked(!checked);
                 break;
             case R.id.rb3:
                 date.setImage(R.id.b2);

@@ -29,13 +29,13 @@ public class Day extends AppCompatActivity {
         length = (TextView)findViewById(R.id.lengthT);
         time = (TextView)findViewById(R.id.timeT);
         message = (TextView)findViewById(R.id.messageT);
-        button = (Button)findViewById(R.id.editb);
+        button = (Button)findViewById(R.id.photo);
 
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Day.this, EditEventOption.class);
+                Intent intent = new Intent(Day.this, BackgroundOption.class);
                 startActivity(intent);
             }
         });
@@ -49,7 +49,7 @@ public class Day extends AppCompatActivity {
                 startActivity(intent);
             }
         });
-        editText = (Button)findViewById(R.id.editTextb);
+        editText = (Button)findViewById(R.id.editb);
         editText.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

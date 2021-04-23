@@ -9,6 +9,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class EventEdit extends AppCompatActivity {
 
     EditText year, month, day, topic, eventContent;
@@ -40,9 +42,9 @@ public class EventEdit extends AppCompatActivity {
                     Toast.makeText(EventEdit.this, "Please enter valid date.", Toast.LENGTH_LONG).show();
                 }
                 else {
-                    //getIntent().putExtra("DateDetails", );
-                    //getIntent().putExtra("DateDetails", );
-                    //getIntent().putExtra("DateDetails", );
+                    ArrayList<Date> list = new ArrayList<>();
+                    list.add(date);
+                    getIntent().putExtra("DateDetails", list);
                     finish();
                 }
             }
