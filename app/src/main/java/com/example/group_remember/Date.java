@@ -6,10 +6,11 @@ public class Date {
     int year = 0;
     int month = 0;
     int day = 0;
-    String topic = "";
-    String text = "";
-    String music = "";
     int image = 0;
+    String topic = "null";
+    String text = "null";
+    String music = "null";
+
 
     public Date() {
 
@@ -18,12 +19,12 @@ public class Date {
     @Override
     public String toString() {
         return year +
-                "|" + month +
-                "|" + day +
-                "|" + image +
-                "|" + music +
-                "|" + topic +
-                "|'" + text + "|" +"\n";
+                "/" + month +
+                "/" + day +
+                "/" + image +
+                "/" + music +
+                "/" + topic +
+                "/" + text + "/" +"\n";
     }
 
     public String getTopic() {

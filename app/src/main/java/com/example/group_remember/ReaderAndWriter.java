@@ -2,12 +2,16 @@ package com.example.group_remember;
 
 import android.content.Context;
 
+import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.util.ArrayList;
 import java.util.Scanner;
 
@@ -28,18 +32,22 @@ public class ReaderAndWriter {
 
 
         try {
-            FileInputStream inputFile = null;
+
+            BufferedReader bufferedReader= null;
+
+
+            FileInputStream inputFile;
             inputFile = context.openFileInput(fileName);
-
-            Scanner input = new Scanner(inputFile);
-
+            bufferedReader = new BufferedReader(new InputStreamReader(inputFile));
+            String line=" ";
             int numOfLines = 0;
-
-            while (input.hasNextLine()) {
-                String line = input.nextLine();
-                String[] lineInfo = line.split("|");
+            while ((line=bufferedReader.readLine())!=null) {
+                StringBuilder content= new StringBuilder();
+                content.append(line);
+                String str = content.toString();
+                String[] lineInfo = str.split("/");
+                System.out.println(str);
                 Date currentDate = new Date();
-
                 currentDate.setYear(Integer.parseInt(lineInfo[0]));
                 currentDate.setMonth(Integer.parseInt(lineInfo[1]));
                 currentDate.setDay(Integer.parseInt(lineInfo[2]));
@@ -50,11 +58,8 @@ public class ReaderAndWriter {
                 datelist.add(currentDate);
                 numOfLines++;
             } // while
-
             System.out.println(Integer.toString(numOfLines - 1) + " text have been loaded");
             inputFile.close();
-            input.close();
-
         } // try
 
         catch (FileNotFoundException e) {
@@ -71,15 +76,15 @@ public class ReaderAndWriter {
 
     } // read method
 
-    public void write(String fileName , ArrayList<Date> datelistw) throws IOException {
+    public void write(Context context, String fileName , ArrayList<Date> datelistw) throws IOException {
 
-        File outputFile = new File(fileName);
+        FileOutputStream outputFile = context.openFileOutput(fileName, MODE_PRIVATE);
+        BufferedWriter bufferedWriter = new BufferedWriter(new OutputStreamWriter(outputFile));
 
-        FileWriter myWriter = new FileWriter(outputFile);
         for(Date date : datelistw) {
-            myWriter.write(date.toString());
+            bufferedWriter.write(date.toString());
         }
-        myWriter.close();
+        bufferedWriter.close();
 
     }
 
