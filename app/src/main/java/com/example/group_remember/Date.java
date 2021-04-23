@@ -11,8 +11,8 @@ import java.util.ArrayList;
 
 
 public class Date {
-    private ArrayList<String> listC;
 
+    private ArrayList<String> listC;
 
     public Date() {
         listC = new ArrayList<String>();
@@ -40,13 +40,13 @@ public class Date {
 
 
         for (int x = 0; x < 10; x++) {
-            if (indexInfor[x].equals("date")) {
+            if (indexInfor[x].equals("")) {
                 year = x;
             }
-            else if (indexInfor[x].equals("state")) {
+            else if (indexInfor[x].equals("")) {
                 month = x;
             }
-            else if (indexInfor[x].equals("positive")) {
+            else if (indexInfor[x].equals("")) {
                 day = x;
             }
 
