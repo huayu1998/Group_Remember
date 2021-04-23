@@ -16,12 +16,12 @@ public class Date {
 
     @Override
     public String toString() {
-        return "|" + year +
+        return year +
                 "|" + month +
                 "|" + day +
                 "|" + image +
                 "|" + music +
-                "|'" + text + "\n";
+                "|'" + text + "|" +"\n";
     }
 
     public int getYear() {
