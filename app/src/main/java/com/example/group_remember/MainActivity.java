@@ -22,6 +22,8 @@ public class MainActivity extends AppCompatActivity {
     TextView name;
     FloatingActionButton button;
     Button detail;
+    ArrayList<Date> dateList;
+    ReaderAndWriter readerAndWriter = new ReaderAndWriter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,6 +33,13 @@ public class MainActivity extends AppCompatActivity {
         name = (TextView)findViewById(R.id.name);
         button = (FloatingActionButton)findViewById(R.id.addb);
         detail = (Button)findViewById(R.id.detailb);
+
+        try {
+            dateList = readerAndWriter.read("data.txt");
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -50,7 +59,7 @@ public class MainActivity extends AppCompatActivity {
 //        public ArrayList<String> creating(String fileForUserContent) throws
 //        FileNotFoundException {
 //
-//            Reader readMachine = new Reader();
+//            ReaderAndWriter readMachine = new ReaderAndWriter();
 //            ArrayList<String> Array = readMachine.read(fileForUserContent);
 //
 //            String firstLine = Array.get(0);

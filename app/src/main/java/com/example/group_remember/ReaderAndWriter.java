@@ -2,17 +2,19 @@ package com.example.group_remember;
 
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
 
 
-public class Reader {
+public class ReaderAndWriter {
 
     ArrayList<Date> datelist = new ArrayList<Date>();
 
-    public Reader() {
+    public ReaderAndWriter() {
 
-    } // Reader
+    } // ReaderAndWriter
 
 
     public ArrayList<Date> read(String fileName) throws FileNotFoundException{
@@ -55,6 +57,18 @@ public class Reader {
         return datelist;
 
     } // read method
+
+    public void write(String fileName , ArrayList<Date> datelistw) throws IOException {
+
+        File outputFile = new File(fileName);
+
+        FileWriter myWriter = new FileWriter(outputFile);
+        for(Date date : datelistw) {
+            myWriter.write(date.toString());
+        }
+        myWriter.close();
+
+    }
 
 
 
