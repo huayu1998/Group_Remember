@@ -6,6 +6,9 @@ public class Date {
     int year = 0;
     int month = 0;
     int day = 0;
+
+
+    String topic = "";
     String text = "";
     String music = "";
     int image = 0;
@@ -21,7 +24,16 @@ public class Date {
                 "|" + day +
                 "|" + image +
                 "|" + music +
+                "|" + topic +
                 "|'" + text + "|" +"\n";
+    }
+
+    public String getTopic() {
+        return topic;
+    }
+
+    public void setTopic(String topic) {
+        this.topic = topic;
     }
 
     public int getYear() {
@@ -73,7 +85,7 @@ public class Date {
     }
 
     public boolean finish(){
-        return year != 0 && month != 0 && day != 0 && !text.equals("") && !music.equals("") && image != 0;
+        return !topic.equals("") && year != 0 && month != 0 && day != 0 && !text.equals("") && !music.equals("") && image != 0;
     }
 
 

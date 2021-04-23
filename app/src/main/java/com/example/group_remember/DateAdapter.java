@@ -26,44 +26,43 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
+        View movieView = LayoutInflater.from(context).inflate(R.layout.datelayout, parent, false);
         return new ViewHolder(movieView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Movie movie = movies.get(position);
-        holder.bind(movie);
+        Date date = dates.get(position);
+        holder.bind(date);
     }
 
     @Override
     public int getItemCount() {
-        return movies.size();
+        return dates.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        TextView tvTitle;
-        TextView tvOverview;
-        ImageView ivPoster;
+        TextView topic;
+        TextView text;
+        TextView time;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
-            tvTitle = itemView.findViewById(R.id.tvTitle);
-            tvOverview = itemView.findViewById(R.id.tvOverview);
-            ivPoster = itemView.findViewById(R.id.ivPoster);
+            topic = itemView.findViewById(R.id.topic);
+            text = itemView.findViewById(R.id.text);
+            time = itemView.findViewById(R.id.time);
         }
 
-        public void bind(Movie movie) {
-            tvTitle.setText(movie.getTitle());
-            tvOverview.setText(movie.getOverview());
-            String imageUrl;
-            // if phone is in landscape, get backdrop image
-            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-                imageUrl = movie.getBackdropPath();
-            } else {
-                imageUrl = movie.getPosterPath();
-            }
-            Glide.with(context).load(imageUrl).into(ivPoster);
+        public void bind(Date date) {
+            topic.setText(date.getTopic());
+            text.setText(date.getText());
+
+//            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
+//                imageUrl = movie.getBackdropPath();
+//            } else {
+//                imageUrl = movie.getPosterPath();
+//            }
+//            Glide.with(context).load(imageUrl).into(ivPoster);
         }
     }
 }
