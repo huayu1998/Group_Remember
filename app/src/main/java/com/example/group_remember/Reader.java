@@ -8,27 +8,34 @@ import java.util.Scanner;
 
 public class Reader {
 
-    // No field yet
-
-    ArrayList<String> dateArray;
+    ArrayList<Date> datelist = new ArrayList<Date>();
 
     public Reader() {
-        dateArray = new ArrayList<String>();
+
     } // Reader
 
 
-    public ArrayList<String> read(String fileName) throws FileNotFoundException{
+    public ArrayList<Date> read(String fileName) throws FileNotFoundException{
 
         File inputFile = new File(fileName);
-        ArrayList<String> newArray = new ArrayList<String>();
+
         try {
             Scanner input = new Scanner(inputFile);
-            System.out.println("Finished loading " + fileName + " file");
 
             int numOfLines = 0;
 
             while (input.hasNextLine()) {
-                newArray.add(input.nextLine());
+                String line = input.nextLine();
+                String[] lineInfo = line.split("|");
+                Date currentDate = new Date();
+
+                currentDate.setYear(Integer.parseInt(lineInfo[0]));
+                currentDate.setMonth(Integer.parseInt(lineInfo[1]));
+                currentDate.setDay(Integer.parseInt(lineInfo[2]));
+                currentDate.setImage(Integer.parseInt(lineInfo[3]));
+                currentDate.setMusic(lineInfo[4]);
+                currentDate.setText(lineInfo[5]);
+                datelist.add(currentDate);
                 numOfLines++;
             } // while
 
@@ -45,18 +52,7 @@ public class Reader {
             //return null;
         } // catch
 
-        if (dateArray.isEmpty() == false) {
-
-            for (int x = 1; x < newArray.size(); x++) {
-                dateArray.add(newArray.get(x));
-            }
-
-        }
-        else {
-            dateArray = newArray;
-        }
-
-        return dateArray;
+        return datelist;
 
     } // read method
 

@@ -10,6 +10,10 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.FileNotFoundException;
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class MainActivity extends AppCompatActivity {
 
 
@@ -42,6 +46,45 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+//        public ArrayList<String> creating(String fileForUserContent) throws
+//        FileNotFoundException {
+//
+//            Reader readMachine = new Reader();
+//            ArrayList<String> Array = readMachine.read(fileForUserContent);
+//
+//            String firstLine = Array.get(0);
+//
+//            Scanner scanner = new Scanner(firstLine);
+//
+//            String [] indexInfor = new String [10];
+//            indexInfor = scanner.next().split(", *");
+//
+//            for (int i = 0; i < 10; i++) {
+//                System.out.println(indexInfor[i]);
+//            }
+//
+//
+//
+//
+//            for (int x = 0; x < 10; x++) {
+//                if (indexInfor[x].equals("")) {
+//                    year = x;
+//                }
+//                else if (indexInfor[x].equals("")) {
+//                    month = x;
+//                }
+//                else if (indexInfor[x].equals("")) {
+//                    day = x;
+//                }
+//
+//
+//            }
+//
+//
+//
+//            return Array;
+//        }
 
     }
 }

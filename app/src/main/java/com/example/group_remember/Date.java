@@ -1,68 +1,84 @@
 package com.example.group_remember;
 
 
-
-import java.io.*;
-import java.util.Scanner;
-import java.util.ArrayList;
-//import java.lang.Object;
-//import bsh.ParseException;
-
-
-
 public class Date {
 
-    private ArrayList<String> listC;
+    int year = 0;
+    int month = 0;
+    int day = 0;
+    String text = "";
+    String music = "";
+    int image = 0;
 
     public Date() {
-        listC = new ArrayList<String>();
+
     }
 
-    public ArrayList<String> creating(String fileForUserContent) throws FileNotFoundException {
+    @Override
+    public String toString() {
+        return "|" + year +
+                "|" + month +
+                "|" + day +
+                "|" + image +
+                "|" + music +
+                "|'" + text + "\n";
+    }
 
-        Reader readMachine = new Reader();
-        ArrayList<String> Array = readMachine.read(fileForUserContent);
+    public int getYear() {
+        return year;
+    }
 
-        String firstLine = Array.get(0);
+    public void setYear(int year) {
+        this.year = year;
+    }
 
-        Scanner scanner = new Scanner(firstLine);
+    public int getMonth() {
+        return month;
+    }
 
-        String [] indexInfor = new String [10];
-        indexInfor = scanner.next().split(", *");
+    public void setMonth(int month) {
+        this.month = month;
+    }
 
-        for (int i = 0; i < 10; i++) {
-            System.out.println(indexInfor[i]);
-        }
+    public int getDay() {
+        return day;
+    }
 
-        int year = 0;
-        int month = 0;
-        int day = 0;
+    public void setDay(int day) {
+        this.day = day;
+    }
 
+    public String getText() {
+        return text;
+    }
 
-        for (int x = 0; x < 10; x++) {
-            if (indexInfor[x].equals("")) {
-                year = x;
-            }
-            else if (indexInfor[x].equals("")) {
-                month = x;
-            }
-            else if (indexInfor[x].equals("")) {
-                day = x;
-            }
+    public void setText(String text) {
+        this.text = text;
+    }
 
+    public String getMusic() {
+        return music;
+    }
 
-        }
+    public void setMusic(String music) {
+        this.music = music;
+    }
 
+    public int getImage() {
+        return image;
+    }
 
+    public void setImage(int image) {
+        this.image = image;
+    }
 
-        return Array;
+    public boolean finish(){
+        return year != 0 && month != 0 && day != 0 && !text.equals("") && !music.equals("") && image != 0;
     }
 
 
-    public ArrayList<String> getList() {
 
-        return listC;
-    }
+
 
 
 
