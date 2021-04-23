@@ -31,6 +31,7 @@ public class Day extends AppCompatActivity {
         message = (TextView)findViewById(R.id.messageT);
         button = (Button)findViewById(R.id.editb);
 
+
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

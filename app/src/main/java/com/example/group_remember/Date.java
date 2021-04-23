@@ -6,8 +6,6 @@ public class Date {
     int year = 0;
     int month = 0;
     int day = 0;
-
-
     String topic = "";
     String text = "";
     String music = "";

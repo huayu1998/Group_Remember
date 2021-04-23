@@ -1,11 +1,17 @@
 package com.example.group_remember;
 
+import android.content.Context;
+
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
+
+import static android.content.Context.MODE_PRIVATE;
 
 
 public class ReaderAndWriter {
@@ -17,11 +23,14 @@ public class ReaderAndWriter {
     } // ReaderAndWriter
 
 
-    public ArrayList<Date> read(String fileName) throws FileNotFoundException{
+    public ArrayList<Date> read(Context context,String fileName) throws FileNotFoundException{
 
-        File inputFile = new File(fileName);
+
 
         try {
+            FileInputStream inputFile = null;
+            inputFile = context.openFileInput(fileName);
+
             Scanner input = new Scanner(inputFile);
 
             int numOfLines = 0;
@@ -36,13 +45,14 @@ public class ReaderAndWriter {
                 currentDate.setDay(Integer.parseInt(lineInfo[2]));
                 currentDate.setImage(Integer.parseInt(lineInfo[3]));
                 currentDate.setMusic(lineInfo[4]);
-                currentDate.setText(lineInfo[5]);
+                currentDate.setTopic(lineInfo[5]);
+                currentDate.setText(lineInfo[6]);
                 datelist.add(currentDate);
                 numOfLines++;
             } // while
 
             System.out.println(Integer.toString(numOfLines - 1) + " text have been loaded");
-
+            inputFile.close();
             input.close();
 
         } // try
@@ -53,6 +63,9 @@ public class ReaderAndWriter {
             throw new FileNotFoundException("No such file");
             //return null;
         } // catch
+        catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return datelist;
 

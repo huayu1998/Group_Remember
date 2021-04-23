@@ -1,6 +1,8 @@
 package com.example.group_remember;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -34,11 +36,18 @@ public class MainActivity extends AppCompatActivity {
         button = (FloatingActionButton)findViewById(R.id.addb);
         detail = (Button)findViewById(R.id.detailb);
 
+
         try {
-            dateList = readerAndWriter.read("data.txt");
+            dateList = readerAndWriter.read(this,"data.txt");
         } catch (FileNotFoundException e) {
             e.printStackTrace();
         }
+
+        RecyclerView rvDate = findViewById(R.id.recyclerView);
+            DateAdapter dateAdapter = new DateAdapter(this, dateList);
+            rvDate.setAdapter(dateAdapter);
+            rvDate.setLayoutManager(new LinearLayoutManager(this));
+
 
 
         button.setOnClickListener(new View.OnClickListener() {
