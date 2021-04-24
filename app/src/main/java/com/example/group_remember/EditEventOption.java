@@ -12,7 +12,7 @@ import java.util.ArrayList;
 
 public class EditEventOption extends AppCompatActivity implements View.OnClickListener {
 
-    Button back, done, addTextContent, chooseDate, backgroundOption, addMusic;
+    Button back, done, addTextContent, chooseDate, backgroundOption, addMusic,delete;
 
     //接收信息
     ArrayList<Date> dateList;
@@ -40,11 +40,13 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
 
         back = (Button) findViewById(R.id.back);
         done = (Button) findViewById(R.id.done);
+        delete = (Button)findViewById(R.id.delete);
         addTextContent = (Button) findViewById(R.id.addTextContent);
         chooseDate = (Button) findViewById(R.id.chooseDate);
         backgroundOption = (Button) findViewById(R.id.backgroundOption);
         addMusic = (Button) findViewById(R.id.addMusic);
 
+        delete.setOnClickListener(this);
         back.setOnClickListener(this);
         done.setOnClickListener(this);
         addTextContent.setOnClickListener(this);
@@ -107,6 +109,19 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
                 intent6.putExtra("version",version);
                 startActivity(intent6);
                 break;
+            case R.id.delete:
+                Intent intent7 = new Intent(EditEventOption.this, MainActivity.class);
+                if(version.equals("new")){
+                    dateList.remove(dateList.size()-1);
+
+                }
+                else{
+                    dateList.remove(number);
+                }
+                intent7.putExtra("dateList", (Serializable)dateList);
+                startActivity(intent7);
+                break;
+
         }
     }
 

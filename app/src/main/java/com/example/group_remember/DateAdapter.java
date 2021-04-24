@@ -5,6 +5,7 @@ import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -18,6 +19,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
 
     Context context;
     ArrayList<Date> dates;
+    Button modify;
 
     public DateAdapter(Context context, ArrayList<Date> dates) {
         this.context = context;
@@ -56,13 +58,6 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> {
         public void bind(Date date) {
             topic.setText(date.getTopic());
             text.setText(date.getText());
-
-//            if (context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE) {
-//                imageUrl = movie.getBackdropPath();
-//            } else {
-//                imageUrl = movie.getPosterPath();
-//            }
-//            Glide.with(context).load(imageUrl).into(ivPoster);
         }
     }
 }
