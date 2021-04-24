@@ -15,7 +15,8 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/backb" />
 
     <ImageView
         android:id="@+id/b0"
@@ -87,14 +88,15 @@
 
 
     <RadioGroup
+        android:id="@+id/radioGroup"
         android:layout_width="407dp"
         android:layout_height="364dp"
         android:layout_marginTop="200dp"
+        android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:orientation="horizontal">
+        app:layout_constraintTop_toTopOf="parent">
 
         <RadioButton
             android:id="@+id/rb1"
@@ -117,14 +119,14 @@
             app:layout_constraintTop_toBottomOf="@+id/b1" />
 
         <RadioButton
-        android:id="@+id/rb3"
-        android:layout_width="107dp"
-        android:layout_height="43dp"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="3dp"
-        android:text="image3"
-        app:layout_constraintStart_toEndOf="@+id/rb2"
-        app:layout_constraintTop_toBottomOf="@+id/b2" />
+            android:id="@+id/rb3"
+            android:layout_width="107dp"
+            android:layout_height="43dp"
+            android:layout_marginStart="32dp"
+            android:layout_marginTop="3dp"
+            android:text="image3"
+            app:layout_constraintStart_toEndOf="@+id/rb2"
+            app:layout_constraintTop_toBottomOf="@+id/b2" />
 
         <RadioButton
             android:id="@+id/rb4"
@@ -157,6 +159,27 @@
             app:layout_constraintTop_toBottomOf="@+id/b5" />
 
     </RadioGroup>
+
+    <Button
+        android:id="@+id/finishb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="finish"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.108"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/camera" />
+
+    <Button
+        android:id="@+id/backb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:text="back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

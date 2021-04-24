@@ -35,28 +35,28 @@ public class Day extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(Day.this, BackgroundOption.class);
+                Intent intent = new Intent(Day.this, EditEventOption.class);
                 startActivity(intent);
             }
         });
 
-        music = (FloatingActionButton)findViewById(R.id.musicFab);
+        //music = (FloatingActionButton)findViewById(R.id.musicFab);
 
-        music.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Day.this, PlayMusic.class);
-                startActivity(intent);
-            }
-        });
-        editText = (Button)findViewById(R.id.editb);
-        editText.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(Day.this, EventEdit.class);
-                startActivity(intent);
-            }
-        });
+        //music.setOnClickListener(new View.OnClickListener() {
+       //     @Override
+      //      public void onClick(View v) {
+       //         Intent intent = new Intent(Day.this, PlayMusic.class);
+       //         startActivity(intent);
+       //     }
+      //  });
+      //  editText = (Button)findViewById(R.id.editb);
+      //  editText.setOnClickListener(new View.OnClickListener() {
+       //     @Override
+       //     public void onClick(View v) {
+       //         Intent intent = new Intent(Day.this, EventEdit.class);
+        //        startActivity(intent);
+       //     }
+       // });
 
     }
 

@@ -15,6 +15,10 @@ public class EditTextForEvent extends AppCompatActivity{
     Button finish;
     TextView name;
     EditText editText;
+    Date date = new Date();
+    boolean validTitleNDescription = false;
+    boolean validDate = false;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,11 +32,24 @@ public class EditTextForEvent extends AppCompatActivity{
         finish.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(EditTextForEvent.this, Day.class);
+                Intent intent = new Intent(EditTextForEvent.this, EditEventOption.class);
                 startActivity(intent);
             }
         });
 
+    }
+
+    public boolean setTopicNDescription() {
+
+        if (!name.getText().toString().isEmpty() && !editText.getText().toString().isEmpty()) {
+            date.setTopic(name.getText().toString());
+            date.setText(editText.getText().toString());
+            validTitleNDescription = true;
+        }
+        else {
+            validTitleNDescription = false;
+        }
+        return validTitleNDescription;
     }
 }
 

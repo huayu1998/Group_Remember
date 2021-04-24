@@ -11,10 +11,15 @@ import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import java.io.Serializable;
+import java.util.ArrayList;
+
 
 public class BackgroundOption extends AppCompatActivity {
 
     Button camera;
+    Button finish;
+    Button back;
     static final int REQUEST_IMAGE= 1;
 
     ImageView backGround0;
@@ -23,12 +28,27 @@ public class BackgroundOption extends AppCompatActivity {
     ImageView backGround3;
     ImageView backGround4;
     ImageView backGround5;
-    Date date = new Date();
+    //Date date = new Date();
+    int im;
+    ArrayList<Date> dateList;
+    int number;
+    String version;
+    Date date;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_background_option);
+
+        Intent intent = getIntent();
+        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
+        if(serializable != null) {
+            dateList = new ArrayList<Date>();
+            dateList.addAll((ArrayList<Date>) serializable);//之后将serializable对象强转使用即可
+        }
+        number = intent.getIntExtra("int",0);
+        version = intent.getStringExtra("version");
+        date = dateList.get(number);
 
         camera = (Button) findViewById(R.id.camera);
         camera.setOnClickListener(new View.OnClickListener() {
@@ -48,8 +68,31 @@ public class BackgroundOption extends AppCompatActivity {
         backGround4 = (ImageView) findViewById(R.id.b4);
         backGround5 = (ImageView) findViewById(R.id.b5);
 
-        Date date = new Date();
-        date.setImage(R.id.b0);
+        //Date date = new Date();
+        //date.setImage(R.id.b0);
+        finish = (Button)findViewById(R.id.finishb);
+        finish.setOnClickListener(new View.OnClickListener() {
+            Intent intent1;
+            public void onClick(View view) {
+                date.setImage(im);
+                intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
+                intent1.putExtra("dateList", (Serializable)dateList);
+                intent1.putExtra("int",number);
+
+            }
+        });
+
+        back = (Button)findViewById(R.id.backb);
+        back.setOnClickListener(new View.OnClickListener() {
+            Intent intent1;
+            public void onClick(View view) {
+                //date.setImage(im);
+                intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
+                intent1.putExtra("dateList", (Serializable)dateList);
+                intent1.putExtra("int",number);
+
+            }
+        });
 
     }
 
@@ -77,29 +120,33 @@ public class BackgroundOption extends AppCompatActivity {
         switch(view.getId()) {
             case R.id.rb1:
                 if(checked)
-                    date.setImage(R.id.b0);
-                    RadioButton rb = (RadioButton)findViewById(R.id.rb2);
-                    rb.setChecked(!checked);
+                    im = R.id.b0;
+                    //date.setImage(R.id.b0);
                 break;
             case R.id.rb2:
                 if(checked)
-                    date.setImage(R.id.b1);
-                    RadioButton rb2 = (RadioButton)findViewById(R.id.rb1);
-                    rb2.setChecked(!checked);
+                    im = R.id.b1;
+                    //date.setImage(R.id.b1);
                 break;
             case R.id.rb3:
-                date.setImage(R.id.b2);
+                if(checked)
+                    im = R.id.b2;
+                //date.setImage(R.id.b2);
                 break;
             case R.id.rb4:
                 if(checked)
-                    date.setImage(R.id.b3);
+                    im = R.id.b3;
+                    //date.setImage(R.id.b3);
                 break;
             case R.id.rb5:
                 if(checked)
-                    date.setImage(R.id.b4);
+                    im = R.id.b4;
+                    //date.setImage(R.id.b4);
                 break;
             case R.id.rb6:
-                date.setImage(R.id.b5);
+                if(checked)
+                    im = R.id.b5;
+                  //date.setImage(R.id.b5);
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
