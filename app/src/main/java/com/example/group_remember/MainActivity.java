@@ -19,7 +19,7 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
 
 
     TextView time;
@@ -62,21 +62,22 @@ public class MainActivity extends AppCompatActivity {
             rvDate.setAdapter(dateAdapter);
             rvDate.setLayoutManager(new LinearLayoutManager(this));
 
+        button.setOnClickListener(this);
 
+    }
 
-        button.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.addb:
                 Intent intent = new Intent(MainActivity.this, EditEventOption.class);
                 Date date = new Date();
                 dateList.add(date);
-                intent.putExtra("dateList", (Serializable)dateList);
-                intent.putExtra("int",dateList.size()-1);
-                intent.putExtra("version","new");
+                intent.putExtra("dateList", (Serializable) dateList);
+                intent.putExtra("int", dateList.size() - 1);
+                intent.putExtra("version", "new");
                 startActivity(intent);
-            }
-        });
-
+        }
     }
 
     @Override
