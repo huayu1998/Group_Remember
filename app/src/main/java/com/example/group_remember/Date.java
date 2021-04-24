@@ -1,7 +1,9 @@
 package com.example.group_remember;
 
 
-public class Date {
+import java.io.Serializable;
+
+public class Date implements Serializable {
 
     int year = 0;
     int month = 0;
