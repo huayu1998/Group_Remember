@@ -66,12 +66,12 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Day.class);
+                Intent intent = new Intent(MainActivity.this, EditEventOption.class);
                 Date date = new Date();
-                dateList.add(date);
-                intent.putExtra("dataList",dateList);
-                intent.putExtra("int",dateList.size()-1);
-                intent.putExtra("version","new");
+                //dateList.add(date);
+                //intent.putExtra("dataList",dateList);
+                //intent.putExtra("int",dateList.size()-1);
+                //intent.putExtra("version","new");
                 startActivity(intent);
             }
         });
