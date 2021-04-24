@@ -67,48 +67,14 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this, Day.class);
+                Date date = new Date();
+                dateList.add(date);
+                intent.putExtra("dataList",dateList);
+                intent.putExtra("int",dateList.size()-1);
+                intent.putExtra("version","new");
                 startActivity(intent);
             }
         });
-
-//        public ArrayList<String> creating(String fileForUserContent) throws
-//        FileNotFoundException {
-//
-//            ReaderAndWriter readMachine = new ReaderAndWriter();
-//            ArrayList<String> Array = readMachine.read(fileForUserContent);
-//
-//            String firstLine = Array.get(0);
-//
-//            Scanner scanner = new Scanner(firstLine);
-//
-//            String [] indexInfor = new String [10];
-//            indexInfor = scanner.next().split(", *");
-//
-//            for (int i = 0; i < 10; i++) {
-//                System.out.println(indexInfor[i]);
-//            }
-//
-//
-//
-//
-//            for (int x = 0; x < 10; x++) {
-//                if (indexInfor[x].equals("")) {
-//                    year = x;
-//                }
-//                else if (indexInfor[x].equals("")) {
-//                    month = x;
-//                }
-//                else if (indexInfor[x].equals("")) {
-//                    day = x;
-//                }
-//
-//
-//            }
-//
-//
-//
-//            return Array;
-//        }
 
     }
 }
