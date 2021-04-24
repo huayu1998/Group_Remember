@@ -84,7 +84,7 @@ public class Date {
     }
 
     public boolean finish(){
-        return !topic.equals("") && year != 0 && month != 0 && day != 0 && !text.equals("") && !music.equals("") && image != 0;
+        return !topic.equals("null") && year != 0 && month != 0 && day != 0 && !text.equals("null") && !music.equals("null") && image != 0;
     }
 
 
