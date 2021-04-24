@@ -35,7 +35,7 @@ public class MainActivity extends AppCompatActivity {
 
         //读取
         Intent intent = getIntent();
-        Serializable serializable = getIntent().getSerializableExtra("dataList");//在另一个activity中用于获取对象
+        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
             dateList = new ArrayList<Date>();
             dateList.addAll((ArrayList<Date>)serializable);//之后将serializable对象强转使用即可
@@ -67,10 +67,10 @@ public class MainActivity extends AppCompatActivity {
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this, Day.class);
+                Intent intent = new Intent(MainActivity.this, EditEventOption.class);
                 Date date = new Date();
                 dateList.add(date);
-                intent.putExtra("dataList", (Serializable)dateList);
+                intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",dateList.size()-1);
                 intent.putExtra("version","new");
                 startActivity(intent);
@@ -82,9 +82,7 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         //checking if asynctask is still runnning
-        Date test = new Date();
         dateList = new ArrayList<Date>();
-        dateList.add(test);
         try {
             readerAndWriter.write(this,"data.txt",dateList);
         } catch (IOException e) {
