@@ -9,13 +9,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Group_Remember">
-        <activity android:name=".EventEdit"></activity>
-        <activity android:name=".EditEventOption" />
-        <activity android:name=".Day" />
-        <activity android:name=".PlayMusic" />
-        <activity android:name=".ChooseDate" />
-        <activity android:name=".BackgroundOption" />
-        <activity android:name=".EditTextForEvent" />
+        <activity android:name=".EventEdit"> </activity>
+        <activity android:name=".EditEventOption" > </activity>
+        <activity android:name=".EventOption" ></activity>
+        <activity android:name=".Day" ></activity>
+        <activity android:name=".PlayMusic" ></activity>
+        <activity android:name=".ChooseDate" ></activity>
+        <activity android:name=".BackgroundOption" ></activity>
+        <activity android:name=".EditTextForEvent" ></activity>
         <activity android:name=".MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
