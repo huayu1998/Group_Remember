@@ -12,7 +12,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class EditTextForEvent extends AppCompatActivity{
 
-    Button finish;
+    Button back, finish;
     TextView name;
     EditText editText;
 
@@ -21,9 +21,17 @@ public class EditTextForEvent extends AppCompatActivity{
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_edit_text);
 
+        back = (Button) findViewById(R.id.back);
         finish = (Button) findViewById(R.id.finish);
         name = (TextView) findViewById(R.id.eventName);
         editText = (EditText) findViewById(R.id.editTextContent);
+
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
         finish.setOnClickListener(new View.OnClickListener() {
             @Override

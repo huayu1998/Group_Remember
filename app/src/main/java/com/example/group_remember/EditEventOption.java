@@ -36,7 +36,7 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch(view.getId()){
             case R.id.back:
-                Intent intent1 = new Intent(EditEventOption.this, Day.class);
+                Intent intent1 = new Intent(EditEventOption.this, MainActivity.class);
                 startActivity(intent1);
                 break;
             case R.id.done:
