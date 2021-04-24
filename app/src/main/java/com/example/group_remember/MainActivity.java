@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onDestroy() {
         //checking if asynctask is still runnning
-        dateList = new ArrayList<Date>();
         try {
             readerAndWriter.write(this,"data.txt",dateList);
         } catch (IOException e) {

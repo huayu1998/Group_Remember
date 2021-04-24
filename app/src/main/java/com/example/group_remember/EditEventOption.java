@@ -80,6 +80,7 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
                 break;
             case R.id.addTextContent:
                 Intent intent3 = new Intent(EditEventOption.this, EditTextForEvent.class);
+                //传递信息
                 intent3.putExtra("dateList", (Serializable)dateList);
                 intent3.putExtra("int",number);
                 intent3.putExtra("version",version);
