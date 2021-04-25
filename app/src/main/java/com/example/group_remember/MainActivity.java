@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         dateAdapter.setOnItemClickListener(new DateAdapter.OnRecyclerViewItemClickListener() {
             @Override
             public void onClick(View view, int position) {
-                Intent intent = new Intent(MainActivity.this, EditEventOption.class);
+                Intent intent = new Intent(MainActivity.this, Day.class);
                 intent.putExtra("dateList", (Serializable) dateList);
                 intent.putExtra("int", position);
                 intent.putExtra("version", "old");

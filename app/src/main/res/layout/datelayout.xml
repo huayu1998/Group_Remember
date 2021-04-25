@@ -30,12 +30,12 @@
         android:text="time" />
 
     <Button
-        android:id="@+id/modify"
+        android:id="@+id/ViewDay"
         android:layout_width="154dp"
         android:layout_height="69dp"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginTop="57dp"
         android:layout_marginEnd="7dp"
-        android:text="modify" />
+        android:text="ViewDay" />
 </RelativeLayout>

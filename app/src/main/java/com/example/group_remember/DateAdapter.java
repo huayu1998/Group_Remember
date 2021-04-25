@@ -1,20 +1,16 @@
 package com.example.group_remember;
 
 import android.content.Context;
-import android.content.res.Configuration;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
-import java.util.List;
 
 public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> implements View.OnClickListener  {
 
@@ -65,7 +61,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
             topic = itemView.findViewById(R.id.topic);
             text = itemView.findViewById(R.id.text);
             time = itemView.findViewById(R.id.time);
-            modify = itemView.findViewById(R.id.modify);
+            modify = itemView.findViewById(R.id.ViewDay);
             modify.setOnClickListener(DateAdapter.this);
 
         }
@@ -98,7 +94,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
         int position = (int) v.getTag();
         if (mOnItemClickListener != null) {
             switch (v.getId()){
-                case R.id.modify:
+                case R.id.ViewDay:
                     mOnItemClickListener.onClick(v, position);
                     break;
             }
