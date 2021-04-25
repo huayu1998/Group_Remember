@@ -2,7 +2,9 @@ package com.example.group_remember;
 
 import android.content.Intent;
 import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.view.View;
 import android.widget.Button;
@@ -10,9 +12,14 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
 
+import java.io.File;
+import java.io.IOException;
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Locale;
 
 
 public class BackgroundOption extends AppCompatActivity {
@@ -21,6 +28,8 @@ public class BackgroundOption extends AppCompatActivity {
     Button finish;
     Button back;
     static final int REQUEST_IMAGE= 1;
+    private static final int REQUEST_CAPTURE_IMAGE = 100;
+    String imageFilePath;
 
     ImageView backGround0;
     ImageView backGround1;
@@ -53,13 +62,15 @@ public class BackgroundOption extends AppCompatActivity {
         camera = (Button) findViewById(R.id.camera);
         camera.setOnClickListener(new View.OnClickListener() {
             public void onClick(View view) {
-
-                Intent takePicIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                if(takePicIntent.resolveActivity(getPackageManager()) != null){
-                    startActivityForResult(takePicIntent, REQUEST_IMAGE);
-                }
+                openCameraIntent();
+                //Intent takePicIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                //if(takePicIntent.resolveActivity(getPackageManager()) != null){
+                //    startActivityForResult(takePicIntent, REQUEST_IMAGE);
+               // }
             }
         });
+
+
 
         backGround0 = (ImageView) findViewById(R.id.b0);
         backGround1 = (ImageView) findViewById(R.id.b1);
@@ -98,6 +109,29 @@ public class BackgroundOption extends AppCompatActivity {
 
     }
 
+    private void openCameraIntent() {
+        Intent pictureIntent = new Intent(
+                MediaStore.ACTION_IMAGE_CAPTURE);
+        if (pictureIntent.resolveActivity(getPackageManager()) != null) {
+            //創建一個資料夾去存圖片
+            File photoFile = null;
+            try {
+                photoFile = createImageFile();
+            } catch (IOException ex) {
+                //當創建資料夾失敗...
+            }
+
+            //當創建的資料夾不為null直，把創建資料夾的路徑帶給相機，並開啟系統資料夾
+            if (photoFile != null) {
+                Uri photoURI = FileProvider.getUriForFile(this, "com.hello.kaiser.camerademo.provider", photoFile);
+                pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
+                        photoURI);
+                startActivityForResult(pictureIntent,
+                        REQUEST_CAPTURE_IMAGE);
+            }
+        }
+    }
+
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -113,6 +147,23 @@ public class BackgroundOption extends AppCompatActivity {
             intent.putExtra("photo", thumbnail);
             startActivity(intent);
         }
+    }
+
+    private File createImageFile() throws IOException {
+        String timeStamp =
+                new SimpleDateFormat("yyyyMMdd_HHmmss",
+                        Locale.getDefault()).format(new Date());
+        String imageFileName = "IMG_" + timeStamp + "_";
+        File storageDir =
+                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+        File image = File.createTempFile(
+                imageFileName,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        imageFilePath = image.getAbsolutePath();
+        return image;
     }
 
     public void radioClicked(View view) {
