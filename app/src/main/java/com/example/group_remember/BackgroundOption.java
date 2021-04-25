@@ -78,6 +78,7 @@ public class BackgroundOption extends AppCompatActivity {
                 intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent1.putExtra("dateList", (Serializable)dateList);
                 intent1.putExtra("int",number);
+                startActivity(intent1);
 
             }
         });
@@ -90,6 +91,7 @@ public class BackgroundOption extends AppCompatActivity {
                 intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent1.putExtra("dateList", (Serializable)dateList);
                 intent1.putExtra("int",number);
+                startActivity(intent1);
 
             }
         });
@@ -107,8 +109,6 @@ public class BackgroundOption extends AppCompatActivity {
             //ByteArrayOutputStream stream = new ByteArrayOutputStream();
             //thumbnail.compress(Bitmap.CompressFormat.PNG, 90, stream);
             //byte[] image = stream.toByteArray();
-
-
             Intent intent = new Intent(this, Day.class);
             intent.putExtra("photo", thumbnail);
             startActivity(intent);
