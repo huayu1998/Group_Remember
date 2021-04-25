@@ -1,11 +1,16 @@
 package com.example.group_remember;
 
+import android.content.ActivityNotFoundException;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
+import android.os.FileUtils;
 import android.provider.MediaStore;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -15,6 +20,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
@@ -22,12 +29,12 @@ import java.util.ArrayList;
 import java.util.Locale;
 
 
-public class BackgroundOption extends AppCompatActivity {
+public class BackgroundOption extends AppCompatActivity implements View.OnClickListener{
 
     Button camera;
     Button finish;
     Button back;
-    static final int REQUEST_IMAGE= 1;
+    static final int REQUEST_IMAGE = 1;
     private static final int REQUEST_CAPTURE_IMAGE = 100;
     String imageFilePath;
 
@@ -37,7 +44,7 @@ public class BackgroundOption extends AppCompatActivity {
     ImageView backGround3;
     ImageView backGround4;
     ImageView backGround5;
-    //Date date = new Date();
+
     int im;
     ArrayList<Date> dateList;
     int number;
@@ -49,6 +56,14 @@ public class BackgroundOption extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_background_option);
 
+
+        backGround0 = (ImageView) findViewById(R.id.b0);
+        backGround1 = (ImageView) findViewById(R.id.b1);
+        backGround2 = (ImageView) findViewById(R.id.b2);
+        backGround3 = (ImageView) findViewById(R.id.b3);
+        backGround4 = (ImageView) findViewById(R.id.b4);
+        backGround5 = (ImageView) findViewById(R.id.b5);
+
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
@@ -59,112 +74,57 @@ public class BackgroundOption extends AppCompatActivity {
         version = intent.getStringExtra("version");
         date = dateList.get(number);
 
+
         camera = (Button) findViewById(R.id.camera);
-        camera.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View view) {
-                openCameraIntent();
-                //Intent takePicIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                //if(takePicIntent.resolveActivity(getPackageManager()) != null){
-                //    startActivityForResult(takePicIntent, REQUEST_IMAGE);
-               // }
-            }
-        });
-
-
-
-        backGround0 = (ImageView) findViewById(R.id.b0);
-        backGround1 = (ImageView) findViewById(R.id.b1);
-        backGround2 = (ImageView) findViewById(R.id.b2);
-        backGround3 = (ImageView) findViewById(R.id.b3);
-        backGround4 = (ImageView) findViewById(R.id.b4);
-        backGround5 = (ImageView) findViewById(R.id.b5);
-
-        //Date date = new Date();
-        //date.setImage(R.id.b0);
+        camera.setOnClickListener(this);
         finish = (Button)findViewById(R.id.finishb);
-        finish.setOnClickListener(new View.OnClickListener() {
-            Intent intent1;
-            public void onClick(View view) {
-                date.setImage(im);
-                intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
-                intent1.putExtra("dateList", (Serializable)dateList);
-                intent1.putExtra("int",number);
-                startActivity(intent1);
-
-            }
-        });
-
+        finish.setOnClickListener(this);
         back = (Button)findViewById(R.id.backb);
-        back.setOnClickListener(new View.OnClickListener() {
-            Intent intent1;
-            public void onClick(View view) {
-                //date.setImage(im);
-                intent1 = new Intent(BackgroundOption.this, EditEventOption.class);
-                intent1.putExtra("dateList", (Serializable)dateList);
-                intent1.putExtra("int",number);
-                startActivity(intent1);
-
-            }
-        });
+        back.setOnClickListener(this);
 
     }
-
-    private void openCameraIntent() {
-        Intent pictureIntent = new Intent(
-                MediaStore.ACTION_IMAGE_CAPTURE);
-        if (pictureIntent.resolveActivity(getPackageManager()) != null) {
-            //創建一個資料夾去存圖片
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
+    static void saveBitmap(String name, Bitmap bm, Context mContext) {
+        Log.d("Save Bitmap", "Ready to save picture");
+        //指定我们想要存储文件的地址
+        String TargetPath = mContext.getFilesDir() + "/images/";
+        Log.d("Save Bitmap", "Save Path=" + TargetPath);
+            //如果指定文件夹创建成功，那么我们则需要进行图片存储操作
+        File appDir = new File(TargetPath);
+        if (!appDir.exists()) {
+            appDir.mkdir();
+        }
+        File saveFile = new File(TargetPath, name + ".jpg");
+        try {
+                FileOutputStream saveImgOut = new FileOutputStream(saveFile);
+                // compress - 压缩的意思
+                bm.compress(Bitmap.CompressFormat.JPEG, 100, saveImgOut);
+                //存储完成后需要清除相关的进程
+                saveImgOut.flush();
+                saveImgOut.close();
+                Log.d("Save Bitmap", "The picture is save to your phone!");
             } catch (IOException ex) {
-                //當創建資料夾失敗...
+                ex.printStackTrace();
             }
-
-            //當創建的資料夾不為null直，把創建資料夾的路徑帶給相機，並開啟系統資料夾
-            if (photoFile != null) {
-                Uri photoURI = FileProvider.getUriForFile(this, "com.hello.kaiser.camerademo.provider", photoFile);
-                pictureIntent.putExtra(MediaStore.EXTRA_OUTPUT,
-                        photoURI);
-                startActivityForResult(pictureIntent,
-                        REQUEST_CAPTURE_IMAGE);
-            }
-        }
     }
 
-
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK) {
-            Bundle extras = data.getExtras();
-            Bitmap thumbnail = (Bitmap) extras.get("data");
-            //imageView.setBackground(new BitmapDrawable(getResources(), thumbnail));
-            //ByteArrayOutputStream stream = new ByteArrayOutputStream();
-            //thumbnail.compress(Bitmap.CompressFormat.PNG, 90, stream);
-            //byte[] image = stream.toByteArray();
-            Intent intent = new Intent(this, Day.class);
-            intent.putExtra("photo", thumbnail);
-            startActivity(intent);
-        }
-    }
-
-    private File createImageFile() throws IOException {
-        String timeStamp =
-                new SimpleDateFormat("yyyyMMdd_HHmmss",
-                        Locale.getDefault()).format(new Date());
-        String imageFileName = "IMG_" + timeStamp + "_";
-        File storageDir =
-                getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-        File image = File.createTempFile(
-                imageFileName,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        imageFilePath = image.getAbsolutePath();
-        return image;
-    }
+//    public static File saveImage(Bitmap bmp, String path, String fileName) {
+//        File appDir = new File(path);
+//        if (!appDir.exists()) {
+//            appDir.mkdir();
+//        }
+//        File file = new File(appDir, fileName);
+//        try {
+//            FileOutputStream fos = new FileOutputStream(file);
+//            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
+//            fos.flush();
+//            fos.close();
+//        } catch (FileNotFoundException e) {
+//            e.printStackTrace();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
+//        return file;
+//    }
 
     public void radioClicked(View view) {
         boolean checked =((RadioButton) view).isChecked();
@@ -207,4 +167,42 @@ public class BackgroundOption extends AppCompatActivity {
 
 
 
+    @Override
+    public void onClick(View view) {
+        Intent intent;
+        switch(view.getId()) {
+            case R.id.camera:
+                Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                if (getApplicationContext().getPackageManager().hasSystemFeature(
+                        PackageManager.FEATURE_CAMERA)) {
+                    startActivityForResult(takePictureIntent, REQUEST_IMAGE);
+                    } else {
+                        // no camera on this device
+                    }
+                break;
+            case R.id.finishb:
+                date.setImage(im);
+                intent = new Intent(BackgroundOption.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                startActivity(intent);
+                break;
+            case R.id.backb:
+                intent = new Intent(BackgroundOption.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                startActivity(intent);
+                break;
+        }
+
+    }
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK) {
+            Bundle extras = data.getExtras();
+            Bitmap thumbnail = (Bitmap) extras.get("data");
+            saveBitmap(number+"",thumbnail,this);
+        }
+    }
 }

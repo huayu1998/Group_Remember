@@ -3,12 +3,18 @@ package com.example.group_remember;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 
 public class Day extends AppCompatActivity {
 
@@ -57,7 +63,30 @@ public class Day extends AppCompatActivity {
         //        startActivity(intent);
        //     }
        // });
+    }
 
+    public static Bitmap getLoacalBitmap(String url) {
+        if (url != null) {
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(url);
+                return BitmapFactory.decodeStream(fis);
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                if(fis != null) {
+                    try {
+                        fis.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    fis = null;
+                }
+            }
+        } else {
+            return null;
+        }
     }
 
 }
