@@ -64,7 +64,7 @@ public class ChooseDate extends AppCompatActivity {
             public void onClick(View v) {
 
                 if (!setDate()) {
-                    Toast.makeText(ChooseDate.this, "Please enter title and description.", Toast.LENGTH_LONG).show();
+                    Toast.makeText(ChooseDate.this, "Please enter valid date", Toast.LENGTH_LONG).show();
                 }
                 else {
                     Intent intent = new Intent(ChooseDate.this, EditEventOption.class);
@@ -79,6 +79,11 @@ public class ChooseDate extends AppCompatActivity {
     }
 
     public boolean setDate() {
+
+        if (inputYear.getText().toString().isEmpty() || inputMonth.getText().toString().isEmpty()
+            || inputDay.getText().toString().isEmpty()) {
+            return true;
+        }
 
         if (Integer.valueOf(inputYear.getText().toString()) >= 2016 && Integer.valueOf(inputYear.getText().toString()) <= 2026
                 && Integer.valueOf(inputMonth.getText().toString()) >= 1 && Integer.valueOf(inputMonth.getText().toString()) <= 12
