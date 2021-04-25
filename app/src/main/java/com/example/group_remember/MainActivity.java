@@ -10,6 +10,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     FloatingActionButton button;
     Button detail;
     ArrayList<Date> dateList;
+    ArrayList<Button> buttonList;
     ReaderAndWriter readerAndWriter = new ReaderAndWriter();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,8 +51,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
 
-
-
         setContentView(R.layout.activity_main);
         time = (TextView)findViewById(R.id.time);
         button = (FloatingActionButton)findViewById(R.id.addb);
@@ -58,9 +58,21 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
 
         RecyclerView rvDate = findViewById(R.id.recyclerView);
-            DateAdapter dateAdapter = new DateAdapter(this, dateList);
-            rvDate.setAdapter(dateAdapter);
-            rvDate.setLayoutManager(new LinearLayoutManager(this));
+        DateAdapter dateAdapter = new DateAdapter(this, dateList);
+        rvDate.setAdapter(dateAdapter);
+        rvDate.setLayoutManager(new LinearLayoutManager(this));
+
+
+        dateAdapter.setOnItemClickListener(new DateAdapter.OnRecyclerViewItemClickListener() {
+            @Override
+            public void onClick(View view, int position) {
+                Intent intent = new Intent(MainActivity.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable) dateList);
+                intent.putExtra("int", position);
+                intent.putExtra("version", "old");
+                startActivity(intent);
+            }
+        });
 
         button.setOnClickListener(this);
 
@@ -77,6 +89,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                 intent.putExtra("int", dateList.size() - 1);
                 intent.putExtra("version", "new");
                 startActivity(intent);
+                break;
         }
     }
 
