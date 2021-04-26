@@ -46,6 +46,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="180dp"
         android:width="300dp"
+        android:background="@drawable/button"
         android:text="Add Text Content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -53,10 +54,11 @@
 
     <Button
         android:id="@+id/chooseDate"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="297dp"
+        android:layout_height="51dp"
         android:layout_marginTop="28dp"
-        android:width="300"
+        android:width="300dp"
+        android:background="@drawable/button"
         android:text="Choose Date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -64,9 +66,9 @@
 
     <Button
         android:id="@+id/backgroundOption"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="36dp"
+        android:layout_width="303dp"
+        android:layout_height="61dp"
+        android:layout_marginTop="28dp"
         android:width="300dp"
         android:text="Background Option"
         app:layout_constraintEnd_toEndOf="parent"
@@ -75,9 +77,9 @@
 
     <Button
         android:id="@+id/addMusic"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
+        android:layout_width="299dp"
+        android:layout_height="53dp"
+        android:layout_marginTop="20dp"
         android:width="300dp"
         android:text="Add Music"
         app:layout_constraintEnd_toEndOf="parent"
