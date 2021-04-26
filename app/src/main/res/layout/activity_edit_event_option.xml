@@ -7,84 +7,93 @@
     tools:context=".EditEventOption"
     android:background="@drawable/improve3">
 
-    <Button
+    <android.widget.Button
         android:id="@+id/delete"
         android:layout_width="300dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:width="300dp"
-
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         android:text="delete"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addMusic" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="28dp"
         android:layout_marginTop="24dp"
         android:text="Back"
+        android:textColor="#FF0000"
+        android:background="@drawable/red_button"
         app:layout_constraintEnd_toStartOf="@+id/done"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/done"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:layout_marginEnd="16dp"
         android:text="Done"
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/addTextContent"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="180dp"
         android:width="300dp"
-
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         android:text="Add Text Content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/chooseDate"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:width="300dp"
-
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         android:text="Choose Date"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/addTextContent" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/backgroundOption"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:width="300dp"
-
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         android:text="Background Option"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/chooseDate" />
 
-    <Button
+    <android.widget.Button
         android:id="@+id/addMusic"
         android:layout_width="300dp"
         android:layout_height="50dp"
         android:layout_marginTop="28dp"
         android:width="300dp"
-
+        android:textColor="#FF3700B3"
+        android:background="@drawable/custom_button"
         android:text="Add Music"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
