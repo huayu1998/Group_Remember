@@ -55,7 +55,43 @@ public class PlayMusic extends AppCompatActivity {
         back = (Button) findViewById(R.id.back);
         finishMusic = (Button) findViewById(R.id.finishMusic);
 
+        if(version.equals("old")){
+            String i = date.getMusic();
+            RadioButton radioButton;
+            if(i.equals("Music1")){
+                radioButton = findViewById(R.id.music1);
+                if(!radioButton.isChecked()) {
+                    radioButton.setChecked(true);
+                    radioButton.callOnClick();
+                }
+            }
+            if(i.equals("Music2")){
+                radioButton = findViewById(R.id.music2);
+                if(!radioButton.isChecked()) {
+                    radioButton.setChecked(true);
+                    radioButton.callOnClick();
+                }
+            }
+            if(i.equals("Music3")){
+                radioButton = findViewById(R.id.music3);
+                if(!radioButton.isChecked()) {
+                    radioButton.setChecked(true);
+                    radioButton.callOnClick();
+                }
+            }
+            if(i.equals("Music4")){
+                radioButton = findViewById(R.id.music4);
+                if(!radioButton.isChecked()) {
+                    radioButton.setChecked(true);
+                    radioButton.callOnClick();
+                }
+            }
+
+        }
+
+
         musicGruop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
 
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {

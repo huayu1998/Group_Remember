@@ -80,23 +80,46 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             switch (i) {
                 case 1:
                     radioButton = findViewById(R.id.rb1);
-                    radioButton.callOnClick();
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
                     break;
                 case 2:
                     radioButton = findViewById(R.id.rb2);
-                    radioButton.callOnClick();
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
                 case 3:
                     radioButton = findViewById(R.id.rb3);
-                    radioButton.callOnClick();
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
                 case 4:
                     radioButton = findViewById(R.id.rb4);
-                    radioButton.callOnClick();
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
                 case 5:
                     radioButton = findViewById(R.id.rb5);
-                    radioButton.callOnClick();
-                case 7:
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 6:
                     radioButton = findViewById(R.id.rb6);
-                    radioButton.callOnClick();
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
             }
         }
 
