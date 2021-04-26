@@ -49,9 +49,9 @@ public class ChooseDate extends AppCompatActivity {
         finish = (Button) findViewById(R.id.FinishDate);
 
         if(version.equals("old")){
-            inputYear.setText(date.getYear());
-            inputMonth.setText(date.getMonth());
-            inputDay.setText(date.getDay());
+            inputYear.setText(date.getYear() + "");
+            inputMonth.setText(date.getMonth() + "");
+            inputDay.setText(date.getDay() + "");
         }
 
         back.setOnClickListener(new View.OnClickListener() {

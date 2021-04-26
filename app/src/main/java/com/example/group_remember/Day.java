@@ -163,7 +163,6 @@ public class Day extends AppCompatActivity {
     public void setImage() {
         if (date.getImage() != 0) {
             //Drawable im = (Drawable)findViewById(date.getImage());
-            System.out.println("check2");
             int i = date.getImage();
             switch (i) {
                 case 1:

@@ -74,6 +74,31 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         version = intent.getStringExtra("version");
         date = dateList.get(number);
 
+        if(version.equals("old")){
+            int i = date.getImage();
+            RadioButton radioButton;
+            switch (i) {
+                case 1:
+                    radioButton = findViewById(R.id.rb1);
+                    radioButton.callOnClick();
+                    break;
+                case 2:
+                    radioButton = findViewById(R.id.rb2);
+                    radioButton.callOnClick();
+                case 3:
+                    radioButton = findViewById(R.id.rb3);
+                    radioButton.callOnClick();
+                case 4:
+                    radioButton = findViewById(R.id.rb4);
+                    radioButton.callOnClick();
+                case 5:
+                    radioButton = findViewById(R.id.rb5);
+                    radioButton.callOnClick();
+                case 7:
+                    radioButton = findViewById(R.id.rb6);
+                    radioButton.callOnClick();
+            }
+        }
 
         camera = (Button) findViewById(R.id.camera);
         camera.setOnClickListener(this);
