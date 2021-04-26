@@ -48,6 +48,7 @@ public class EditTextForEvent extends AppCompatActivity{
         name = (TextView) findViewById(R.id.eventName);
         editText = (EditText) findViewById(R.id.editTextContent);
 
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
