@@ -3,6 +3,7 @@ package com.example.group_remember;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -22,6 +23,7 @@ public class PlayMusic extends AppCompatActivity {
     RadioGroup musicGruop;
     Button back, finishMusic;
     boolean musicSelected = false;
+    MediaPlayer mp;
 
     //接收信息
     ArrayList<Date> dateList;
@@ -54,6 +56,7 @@ public class PlayMusic extends AppCompatActivity {
         finishMusic = (Button) findViewById(R.id.finishMusic);
 
         musicGruop.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+
             @Override
             public void onCheckedChanged(RadioGroup group, int checkedId) {
                 // find which radio button is selected
@@ -61,21 +64,85 @@ public class PlayMusic extends AppCompatActivity {
                     Toast.makeText(PlayMusic.this, "Music 1 selected.", Toast.LENGTH_LONG).show();
                     date.setMusic("Music1");
                     musicSelected = true;
+
+                    if (mp == null) {
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song1);
+                        mp.start();
+                    }
+                    else if (mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song1);
+                        mp.start();
+                    }
+                    else if (!mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song1);
+                        mp.start();
+                    }
+
                 }
                 else if(checkedId == R.id.music2) {
                     Toast.makeText(PlayMusic.this, "Music 2 selected.", Toast.LENGTH_LONG).show();
                     date.setMusic("Music2");
                     musicSelected = true;
+
+                    if (mp == null) {
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song2);
+                        mp.start();
+                    }
+                    else if (mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song2);
+                        mp.start();
+                    }
+                    else if (!mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song2);
+                        mp.start();
+                    }
+
                 }
                 else if (checkedId == R.id.music3){
                     Toast.makeText(PlayMusic.this, "Music 3 selected.", Toast.LENGTH_LONG).show();
                     date.setMusic("Music3");
                     musicSelected = true;
+
+                    if (mp == null) {
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song3);
+                        mp.start();
+                    }
+                    else if (mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song3);
+                        mp.start();
+                    }
+                    else if (!mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song3);
+                        mp.start();
+                    }
+
                 }
                 else if (checkedId == R.id.music4){
                     Toast.makeText(PlayMusic.this, "Music 4 selected.", Toast.LENGTH_LONG).show();
                     date.setMusic("Music4");
                     musicSelected = true;
+
+                    if (mp == null) {
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song4);
+                        mp.start();
+                    }
+                    else if (mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song4);
+                        mp.start();
+                    }
+                    else if (!mp.isPlaying()) {
+                        mp.release();
+                        mp = MediaPlayer.create(PlayMusic.this, R.raw.song4);
+                        mp.start();
+                    }
+
                 }
             }
         });
@@ -87,6 +154,10 @@ public class PlayMusic extends AppCompatActivity {
                 intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",number);
                 intent.putExtra("version",version);
+
+                if (mp != null) {
+                    mp.release();
+                }
                 startActivity(intent);
             }
         });
@@ -103,6 +174,7 @@ public class PlayMusic extends AppCompatActivity {
                     intent.putExtra("dateList", (Serializable)dateList);
                     intent.putExtra("int",number);
                     intent.putExtra("version",version);
+                    mp.release();
                     startActivity(intent);
                 }
             }
