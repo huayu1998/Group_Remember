@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".EditEventOption">
+    tools:context=".EditEventOption"
+    android:background="@drawable/improve3">
 
     <Button
         android:id="@+id/delete"

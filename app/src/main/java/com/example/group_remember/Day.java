@@ -14,6 +14,8 @@ import android.widget.TextView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.io.Serializable;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
 import java.util.ArrayList;
 
 public class Day extends AppCompatActivity {
@@ -152,6 +154,7 @@ public class Day extends AppCompatActivity {
         }
 
         if (date.getYear() != 0 && date.getMonth() != 0 && date.getDay() != 0) {
+            
             time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
         }
 
