@@ -3,10 +3,12 @@ package com.example.group_remember;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -24,6 +26,7 @@ public class Day extends AppCompatActivity {
     //FloatingActionButton music;
     Button editText;
     MediaPlayer mp;
+    ImageView photo;
 
     //接收信息
     ArrayList<Date> dateList;
@@ -53,9 +56,11 @@ public class Day extends AppCompatActivity {
         message = (TextView)findViewById(R.id.messageT);
         back = (Button) findViewById(R.id.back);
         button = (Button)findViewById(R.id.edit);
+        photo = (ImageView)findViewById(R.id.photoiv);
 
         // Set the Text Information
         setInformation();
+        //setImage();
 
         // Play the music
         if (!date.getMusic().isEmpty()) {
@@ -148,6 +153,14 @@ public class Day extends AppCompatActivity {
             time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
         }
 
+    }
+
+    public void setImage(){
+        if (date.getImage()!= 0) {
+            //Drawable im = (Drawable)findViewById(date.getImage());
+            int i = date.getImage();
+            photo.setBackground(getResources().getDrawable(i));
+        }
     }
 
 }
