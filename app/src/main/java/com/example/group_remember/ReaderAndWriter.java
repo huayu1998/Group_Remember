@@ -29,10 +29,14 @@ public class ReaderAndWriter {
 
     public ArrayList<Date> read(Context context,String fileName) throws FileNotFoundException{
 
-        File file = new File(fileName);
-        if (file.exists()) {
-            try {
 
+        try {
+
+            String path = context.getFilesDir() + "/" + fileName;
+            File f = new File(path);
+            if(!f.exists()) {
+                f.createNewFile();
+            }
                 BufferedReader bufferedReader = null;
                 FileInputStream inputFile;
                 inputFile = context.openFileInput(fileName);
@@ -69,15 +73,7 @@ public class ReaderAndWriter {
             catch (IOException e) {
                 e.printStackTrace();
             }
-        }
-        else{
-            try {
-                datelist = new ArrayList<Date>();
-                this.write(context,fileName,datelist);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
+
 
         return datelist;
 
