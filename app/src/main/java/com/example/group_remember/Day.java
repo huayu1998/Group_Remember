@@ -3,15 +3,13 @@ package com.example.group_remember;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CompoundButton;
 import android.widget.ImageView;
-import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -30,7 +28,7 @@ public class Day extends AppCompatActivity {
     //FloatingActionButton music;
     Button editText;
     MediaPlayer mp;
-    Switch musicOnOff;
+    ImageView photo;
 
     //接收信息
     ArrayList<Date> dateList;
@@ -60,13 +58,14 @@ public class Day extends AppCompatActivity {
         message = (TextView)findViewById(R.id.messageT);
         back = (Button) findViewById(R.id.back);
         button = (Button)findViewById(R.id.edit);
-        musicOnOff = (Switch) findViewById(R.id.musicOnOff);
+        photo = (ImageView)findViewById(R.id.photoiv);
 
         // Set the Text Information
         setInformation();
+        //setImage();
 
         // Play the music
-        if (!date.getMusic().equals("null")) {
+        if (!date.getMusic().isEmpty()) {
 
             if (date.getMusic().equals("Music1")) {
                 mp = MediaPlayer.create(Day.this, R.raw.song1);
@@ -90,34 +89,6 @@ public class Day extends AppCompatActivity {
             }
 
         }
-        else {
-            musicOnOff.setChecked(false);
-            musicOnOff.setText("Off");
-        }
-
-        // Turn on or off the music
-        musicOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
-            @Override
-            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
-
-                if (mp != null) {
-                    if (isChecked == false) {
-                        musicOnOff.setText("Off");
-                        mp.pause();
-                    }
-                    else if (isChecked == true) {
-                        musicOnOff.setText("On");
-                        mp.start();
-                    }
-                }
-                else if (mp == null) {
-                    musicOnOff.setText("Off");
-                    musicOnOff.setChecked(false);
-                    Toast.makeText(Day.this, "Not select music yet.", Toast.LENGTH_SHORT).show();
-                }
-
-            }
-        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -173,7 +144,7 @@ public class Day extends AppCompatActivity {
     public void setInformation() {
 
         if (!date.getTopic().isEmpty() && !date.getTopic().equals("null")) {
-            title.setText(date.getTopic());
+            title.setText(date.getText());
         }
 
         if (!date.getText().isEmpty() && !date.getText().equals("null")) {
@@ -185,6 +156,14 @@ public class Day extends AppCompatActivity {
             time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
         }
 
+    }
+
+    public void setImage(){
+        if (date.getImage()!= 0) {
+            //Drawable im = (Drawable)findViewById(date.getImage());
+            int i = date.getImage();
+            photo.setBackground(getResources().getDrawable(i));
+        }
     }
 
 }
