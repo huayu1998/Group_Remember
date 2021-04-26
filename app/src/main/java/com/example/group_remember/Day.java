@@ -7,6 +7,7 @@ import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -137,7 +138,7 @@ public class Day extends AppCompatActivity {
     public void setInformation() {
 
         if (!date.getTopic().isEmpty() && !date.getTopic().equals("null")) {
-            title.setText(date.getText());
+            title.setText(date.getTopic());
         }
 
         if (!date.getText().isEmpty() && !date.getText().equals("null")) {
