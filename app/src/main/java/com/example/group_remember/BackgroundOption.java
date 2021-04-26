@@ -194,8 +194,6 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             case R.id.rb6:
                 im = 6;
                 break;
-            default:
-                throw new IllegalStateException("Unexpected value: " + view.getId());
         }
 
     }
@@ -212,8 +210,14 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
                         PackageManager.FEATURE_CAMERA)) {
                     startActivityForResult(takePictureIntent, REQUEST_IMAGE);
                     } else {
-                        // no camera on this device
+
                     }
+                date.setImage(-1);
+                intent = new Intent(BackgroundOption.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                intent.putExtra("version",version);
+                startActivity(intent);
                 break;
             case R.id.finishb:
                 date.setImage(im);
