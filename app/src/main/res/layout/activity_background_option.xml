@@ -6,18 +6,6 @@
     android:layout_height="match_parent"
     tools:context=".BackgroundOption">
 
-    <Button
-        android:id="@+id/camera"
-        android:layout_width="108dp"
-        android:layout_height="51dp"
-        android:layout_marginBottom="16dp"
-        android:text="Camera"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/backb" />
-
     <ImageView
         android:id="@+id/b0"
         android:layout_width="138dp"
@@ -161,6 +149,17 @@
     </RadioGroup>
 
     <Button
+        android:id="@+id/backb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="28dp"
+        android:text="back"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.913"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+
+    <Button
         android:id="@+id/finishb"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -171,15 +170,17 @@
         app:layout_constraintTop_toTopOf="@+id/camera" />
 
     <Button
-        android:id="@+id/backb"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="96dp"
-        android:text="back"
+        android:id="@+id/camera"
+        android:layout_width="109dp"
+        android:layout_height="47dp"
+        android:layout_marginBottom="16dp"
+        android:text="Camera"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.907"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/radioGroup" />
+        app:layout_constraintTop_toTopOf="@+id/backb"
+        app:layout_constraintVertical_bias="0.0" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
