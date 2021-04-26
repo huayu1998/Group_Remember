@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@drawable/improve3"
+    android:onClick="radioClicked"
     tools:context=".BackgroundOption">
 
 
@@ -15,9 +16,9 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="7dp"
+        android:layout_marginStart="2dp"
         android:layout_marginTop="10dp"
-        android:layout_marginEnd="274dp"
+        android:layout_marginEnd="271dp"
         android:clickable="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -39,7 +40,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b0"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background_2" />
+        app:srcCompat="@drawable/background_4" />
 
     <ImageView
         android:id="@+id/b2"
@@ -63,12 +64,12 @@
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
-        android:layout_marginStart="146dp"
+        android:layout_marginStart="132dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="127dp"
         app:layout_constraintStart_toEndOf="@+id/b0"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_4" />
+        app:srcCompat="@drawable/background_2" />
 
     <ImageView
         android:id="@+id/b5"
@@ -86,7 +87,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b2"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/background_5" />
+        app:srcCompat="@drawable/background_6" />
 
     <ImageView
         android:id="@+id/b4"
@@ -103,7 +104,7 @@
         app:layout_constraintStart_toStartOf="@id/b3"
         app:layout_constraintTop_toBottomOf="@+id/b1"
         app:layout_constraintVertical_bias="0.251"
-        app:srcCompat="@drawable/background_4" />
+        app:srcCompat="@drawable/background_5" />
 
     <RadioGroup
         android:id="@+id/radioGroup"
@@ -122,6 +123,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:onClick="radioClicked"
             android:text="image1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/b0" />
@@ -130,8 +132,9 @@
             android:id="@+id/rb2"
             android:layout_width="100dp"
             android:layout_height="42dp"
-            android:layout_marginStart="24dp"
+            android:layout_marginStart="26dp"
             android:layout_marginTop="8dp"
+            android:onClick="radioClicked"
             android:text="image2"
             app:layout_constraintStart_toEndOf="@+id/rb1"
             app:layout_constraintTop_toBottomOf="@+id/b1" />
@@ -142,6 +145,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="8dp"
+            android:onClick="radioClicked"
             android:text="image3"
             app:layout_constraintStart_toEndOf="@+id/rb2"
             app:layout_constraintTop_toBottomOf="@+id/b2" />
@@ -152,6 +156,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="-350dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/b3" />
@@ -162,6 +167,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image5"
             app:layout_constraintStart_toEndOf="@+id/rb4"
             app:layout_constraintTop_toBottomOf="@+id/b4" />
@@ -172,6 +178,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image6"
             app:layout_constraintStart_toEndOf="@+id/rb5"
             app:layout_constraintTop_toBottomOf="@+id/b5" />

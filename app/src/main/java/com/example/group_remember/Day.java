@@ -180,7 +180,7 @@ public class Day extends AppCompatActivity {
                 case 5:
                     photo.setImageResource(R.drawable.background_5);
                     break;
-                case 7:
+                case 6:
                     photo.setImageResource(R.drawable.background_6);
                     break;
             }
