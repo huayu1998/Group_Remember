@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.view.View;
+import android.widget.Toast;
 
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -74,11 +75,14 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
                 startActivity(intent1);
                 break;
             case R.id.done:
-                Intent intent2 = new Intent(EditEventOption.this, MainActivity.class);
-                intent2.putExtra("dateList", (Serializable)dateList);
-//                intent2.putExtra("int",number);
-//                intent2.putExtra("version",version);
-                startActivity(intent2);
+                if(date.finish()) {
+                    Intent intent2 = new Intent(EditEventOption.this, MainActivity.class);
+                    intent2.putExtra("dateList", (Serializable) dateList);
+                    startActivity(intent2);
+                }
+                else {
+                    Toast.makeText(this, "The date is not finished!", Toast.LENGTH_SHORT).show();
+                }
                 break;
             case R.id.addTextContent:
                 Intent intent3 = new Intent(EditEventOption.this, EditTextForEvent.class);

@@ -3,9 +3,12 @@ package com.example.group_remember;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -13,7 +16,13 @@ import android.widget.TextView;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.io.InputStream;
 import java.io.Serializable;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.ArrayList;
@@ -183,8 +192,38 @@ public class Day extends AppCompatActivity {
                 case 6:
                     photo.setImageResource(R.drawable.background_6);
                     break;
+                case -1:
+                    String TargetPath = this.getFilesDir() + "/images/"+ number + ".jpg";
+                    Bitmap bitmap = getLoacalBitmap(TargetPath);
+                    photo.setImageBitmap(bitmap);
+                    break;
             }
         }
     }
+
+    public static Bitmap getLoacalBitmap(String url) {
+        if (url != null) {
+            FileInputStream fis = null;
+            try {
+                fis = new FileInputStream(url);
+                return BitmapFactory.decodeStream(fis); // /把流转化为Bitmap图片
+            } catch (FileNotFoundException e) {
+                e.printStackTrace();
+                return null;
+            } finally {
+                if(fis != null) {
+                    try {
+                        fis.close();
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+                    fis = null;
+                }
+            }
+        } else {
+            return null;
+        }
+    }
+
 
 }

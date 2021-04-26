@@ -36,6 +36,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+
         //读取
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象

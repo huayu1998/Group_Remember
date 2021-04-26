@@ -76,6 +76,8 @@
         android:background="@drawable/custom_button"
         android:text="edit"
         android:textColor="#FF3700B3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
         app:layout_constraintStart_toEndOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent" />
 

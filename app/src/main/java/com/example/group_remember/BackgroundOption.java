@@ -34,8 +34,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
     Button camera;
     Button finish;
     Button back;
-    static final int REQUEST_IMAGE = 1;
-    private static final int REQUEST_CAPTURE_IMAGE = 100;
+    private static final int REQUEST_IMAGE = 1;
     String imageFilePath;
 
     ImageView backGround0;
@@ -212,12 +211,12 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
                     } else {
 
                     }
-                date.setImage(-1);
-                intent = new Intent(BackgroundOption.this, EditEventOption.class);
-                intent.putExtra("dateList", (Serializable)dateList);
-                intent.putExtra("int",number);
-                intent.putExtra("version",version);
-                startActivity(intent);
+                im = -1;
+//                intent = new Intent(BackgroundOption.this, EditEventOption.class);
+//                intent.putExtra("dateList", (Serializable)dateList);
+//                intent.putExtra("int",number);
+//                intent.putExtra("version",version);
+//                startActivity(intent);
                 break;
             case R.id.finishb:
                 date.setImage(im);
@@ -241,6 +240,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (requestCode == REQUEST_IMAGE && resultCode == RESULT_OK) {
+            System.out.println("check");
             Bundle extras = data.getExtras();
             Bitmap thumbnail = (Bitmap) extras.get("data");
             saveBitmap(number+"",thumbnail,this);
