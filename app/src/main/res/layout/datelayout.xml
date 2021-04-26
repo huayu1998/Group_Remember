@@ -10,7 +10,7 @@
         android:text="topic" />
 
     <TextView
-        android:id="@+id/text"
+        android:id="@+id/Date"
         android:layout_width="152dp"
         android:layout_height="64dp"
         android:layout_alignParentStart="true"

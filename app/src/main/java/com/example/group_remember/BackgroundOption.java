@@ -127,37 +127,24 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
 //    }
 
     public void radioClicked(View view) {
-        boolean checked =((RadioButton) view).isChecked();
         switch(view.getId()) {
             case R.id.rb1:
-                if(checked)
-                    im = R.id.b0;
-                    //date.setImage(R.id.b0);
+                im = 1;
                 break;
             case R.id.rb2:
-                if(checked)
-                    im = R.id.b1;
-                    //date.setImage(R.id.b1);
+                im =2;
                 break;
             case R.id.rb3:
-                if(checked)
-                    im = R.id.b2;
-                //date.setImage(R.id.b2);
+                im = 3;
                 break;
             case R.id.rb4:
-                if(checked)
-                    im = R.id.b3;
-                    //date.setImage(R.id.b3);
+                im = 4;
                 break;
             case R.id.rb5:
-                if(checked)
-                    im = R.id.b4;
-                    //date.setImage(R.id.b4);
+                im = 5;
                 break;
             case R.id.rb6:
-                if(checked)
-                    im = R.id.b5;
-                  //date.setImage(R.id.b5);
+                im = 6;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
@@ -185,12 +172,14 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
                 intent = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",number);
+                intent.putExtra("version",version);
                 startActivity(intent);
                 break;
             case R.id.backb:
                 intent = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",number);
+                intent.putExtra("version",version);
                 startActivity(intent);
                 break;
         }

@@ -28,7 +28,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b0"
         app:layout_constraintVertical_bias="0.0"
-        app:srcCompat="@drawable/background_2" />
+        app:srcCompat="@drawable/background_4" />
 
     <ImageView
         android:id="@+id/b2"
@@ -48,7 +48,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_4" />
+        app:srcCompat="@drawable/background_2" />
 
     <ImageView
         android:id="@+id/b5"
@@ -61,7 +61,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b2"
         app:layout_constraintVertical_bias="0.012"
-        app:srcCompat="@drawable/background_7" />
+        app:srcCompat="@drawable/background_6" />
 
     <ImageView
         android:id="@+id/b4"
@@ -72,7 +72,7 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/b1"
         app:layout_constraintVertical_bias="0.251"
-        app:srcCompat="@drawable/background_9" />
+        app:srcCompat="@drawable/background_5" />
 
 
     <RadioGroup
@@ -92,6 +92,7 @@
             android:layout_height="42dp"
             android:layout_marginStart="16dp"
             android:layout_marginTop="8dp"
+            android:onClick="radioClicked"
             android:text="image1"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/b0" />
@@ -102,6 +103,7 @@
             android:layout_height="46dp"
             android:layout_marginStart="24dp"
             android:layout_marginTop="4dp"
+            android:onClick="radioClicked"
             android:text="image2"
             app:layout_constraintStart_toEndOf="@+id/rb1"
             app:layout_constraintTop_toBottomOf="@+id/b1" />
@@ -112,6 +114,7 @@
             android:layout_height="43dp"
             android:layout_marginStart="32dp"
             android:layout_marginTop="3dp"
+            android:onClick="radioClicked"
             android:text="image3"
             app:layout_constraintStart_toEndOf="@+id/rb2"
             app:layout_constraintTop_toBottomOf="@+id/b2" />
@@ -122,6 +125,7 @@
             android:layout_height="45dp"
             android:layout_marginStart="-380dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image4"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/b3" />
@@ -132,6 +136,7 @@
             android:layout_height="wrap_content"
             android:layout_marginStart="35dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image5"
             app:layout_constraintStart_toEndOf="@+id/rb4"
             app:layout_constraintTop_toBottomOf="@+id/b4" />
@@ -142,6 +147,7 @@
             android:layout_height="50dp"
             android:layout_marginStart="25dp"
             android:layout_marginTop="305dp"
+            android:onClick="radioClicked"
             android:text="image6"
             app:layout_constraintStart_toEndOf="@+id/rb5"
             app:layout_constraintTop_toBottomOf="@+id/b5" />
