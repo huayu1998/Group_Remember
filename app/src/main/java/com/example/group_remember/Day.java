@@ -20,8 +20,8 @@ public class Day extends AppCompatActivity {
     TextView length;
     TextView time;
     TextView message;
-    Button button;
-    FloatingActionButton music;
+    Button back, button;
+    //FloatingActionButton music;
     Button editText;
     MediaPlayer mp;
 
@@ -51,7 +51,11 @@ public class Day extends AppCompatActivity {
         length = (TextView)findViewById(R.id.lengthT);
         time = (TextView)findViewById(R.id.timeT);
         message = (TextView)findViewById(R.id.messageT);
-        button = (Button)findViewById(R.id.photo);
+        back = (Button) findViewById(R.id.back);
+        button = (Button)findViewById(R.id.edit);
+
+        // Set the Text Information
+        setInformation();
 
         // Play the music
         if (!date.getMusic().isEmpty()) {
@@ -79,11 +83,33 @@ public class Day extends AppCompatActivity {
 
         }
 
+        back.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mp != null) {
+                    mp.release();
+                }
+                Intent intent = new Intent(Day.this, MainActivity.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                intent.putExtra("version",version);
+                startActivity(intent);
+
+            }
+        });
+
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (mp != null) {
+                    mp.release();
+                }
                 Intent intent = new Intent(Day.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                intent.putExtra("version",version);
                 startActivity(intent);
             }
         });
@@ -105,6 +131,22 @@ public class Day extends AppCompatActivity {
         //        startActivity(intent);
        //     }
        // });
+
+    }
+
+    public void setInformation() {
+
+        if (!date.getTopic().isEmpty() && !date.getTopic().equals("null")) {
+            title.setText(date.getText());
+        }
+
+        if (!date.getText().isEmpty() && !date.getText().equals("null")) {
+            message.setText(date.getText());
+        }
+
+        if (date.getYear() != 0 && date.getMonth() != 0 && date.getDay() != 0) {
+            time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
+        }
 
     }
 
