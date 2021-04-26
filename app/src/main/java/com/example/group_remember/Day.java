@@ -60,9 +60,11 @@ public class Day extends AppCompatActivity {
         button = (Button)findViewById(R.id.edit);
         photo = (ImageView)findViewById(R.id.photoiv);
 
+
+
         // Set the Text Information
         setInformation();
-        //setImage();
+        setImage();
 
         // Play the music
         if (!date.getMusic().isEmpty()) {
@@ -158,11 +160,30 @@ public class Day extends AppCompatActivity {
 
     }
 
-    public void setImage(){
-        if (date.getImage()!= 0) {
+    public void setImage() {
+        if (date.getImage() != 0) {
             //Drawable im = (Drawable)findViewById(date.getImage());
             int i = date.getImage();
-            photo.setBackground(getResources().getDrawable(i));
+            switch (i) {
+                case 1:
+                    photo.setImageResource(R.drawable.background_1);
+                    break;
+                case 2:
+                    photo.setImageResource(R.drawable.background_2);
+                    break;
+                case 3:
+                    photo.setImageResource(R.drawable.background_3);
+                    break;
+                case 4:
+                    photo.setImageResource(R.drawable.background_4);
+                    break;
+                case 5:
+                    photo.setImageResource(R.drawable.background_5);
+                    break;
+                case 7:
+                    photo.setImageResource(R.drawable.background_6);
+                    break;
+            }
         }
     }
 

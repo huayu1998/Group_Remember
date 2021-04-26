@@ -59,7 +59,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             topic = itemView.findViewById(R.id.topic);
-            text = itemView.findViewById(R.id.text);
+            text = itemView.findViewById(R.id.Date);
             time = itemView.findViewById(R.id.time);
             modify = itemView.findViewById(R.id.ViewDay);
             modify.setOnClickListener(DateAdapter.this);

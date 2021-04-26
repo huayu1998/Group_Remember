@@ -48,6 +48,12 @@ public class EditTextForEvent extends AppCompatActivity{
         name = (TextView) findViewById(R.id.eventName);
         editText = (EditText) findViewById(R.id.editTextContent);
 
+        if(version.equals("old")){
+            name.setText(date.getTopic());
+            editText.setText(date.getText());
+        }
+
+
         back.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

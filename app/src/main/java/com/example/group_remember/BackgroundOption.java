@@ -74,6 +74,54 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         version = intent.getStringExtra("version");
         date = dateList.get(number);
 
+        if(version.equals("old")){
+            int i = date.getImage();
+            RadioButton radioButton;
+            switch (i) {
+                case 1:
+                    radioButton = findViewById(R.id.rb1);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 2:
+                    radioButton = findViewById(R.id.rb2);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 3:
+                    radioButton = findViewById(R.id.rb3);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 4:
+                    radioButton = findViewById(R.id.rb4);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 5:
+                    radioButton = findViewById(R.id.rb5);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+                case 6:
+                    radioButton = findViewById(R.id.rb6);
+                    if(!radioButton.isChecked()) {
+                        radioButton.setChecked(true);
+                        radioButton.callOnClick();
+                    }
+                    break;
+            }
+        }
 
         camera = (Button) findViewById(R.id.camera);
         camera.setOnClickListener(this);
@@ -127,37 +175,24 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
 //    }
 
     public void radioClicked(View view) {
-        boolean checked =((RadioButton) view).isChecked();
         switch(view.getId()) {
             case R.id.rb1:
-                if(checked)
-                    im = R.id.b0;
-                    //date.setImage(R.id.b0);
+                im = 1;
                 break;
             case R.id.rb2:
-                if(checked)
-                    im = R.id.b1;
-                    //date.setImage(R.id.b1);
+                im =2;
                 break;
             case R.id.rb3:
-                if(checked)
-                    im = R.id.b2;
-                //date.setImage(R.id.b2);
+                im = 3;
                 break;
             case R.id.rb4:
-                if(checked)
-                    im = R.id.b3;
-                    //date.setImage(R.id.b3);
+                im = 4;
                 break;
             case R.id.rb5:
-                if(checked)
-                    im = R.id.b4;
-                    //date.setImage(R.id.b4);
+                im = 5;
                 break;
             case R.id.rb6:
-                if(checked)
-                    im = R.id.b5;
-                  //date.setImage(R.id.b5);
+                im = 6;
                 break;
             default:
                 throw new IllegalStateException("Unexpected value: " + view.getId());
@@ -185,12 +220,14 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
                 intent = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",number);
+                intent.putExtra("version",version);
                 startActivity(intent);
                 break;
             case R.id.backb:
                 intent = new Intent(BackgroundOption.this, EditEventOption.class);
                 intent.putExtra("dateList", (Serializable)dateList);
                 intent.putExtra("int",number);
+                intent.putExtra("version",version);
                 startActivity(intent);
                 break;
         }
