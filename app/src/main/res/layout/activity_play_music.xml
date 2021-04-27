@@ -11,7 +11,7 @@
         android:id="@+id/musicGroup"
         android:layout_width="254dp"
         android:layout_height="306dp"
-        android:layout_marginTop="68dp"
+        android:layout_marginTop="40dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
@@ -21,36 +21,42 @@
             android:id="@+id/music1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam"
             android:text="Music 1" />
 
         <RadioButton
             android:id="@+id/music2"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam"
             android:text="Music 2" />
 
         <RadioButton
             android:id="@+id/music3"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam"
             android:text="Music 3" />
 
         <RadioButton
             android:id="@+id/music4"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/kalam"
             android:text="Music 4" />
     </RadioGroup>
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="44dp"
+        android:layout_width="319dp"
+        android:layout_height="55dp"
+        android:layout_marginTop="84dp"
+        android:fontFamily="@font/candal"
         android:text="Background Music"
         android:textColor="@color/black"
         android:textSize="25sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.475"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -60,6 +66,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
         android:text="Finish"
+        android:fontFamily="@font/kalam"
         android:textColor="#FF3700B3"
         android:background="@drawable/custom_button"
         app:layout_constraintEnd_toEndOf="parent"
@@ -72,6 +79,7 @@
         android:layout_height="46dp"
         android:layout_marginTop="4dp"
         android:text="Back"
+        android:fontFamily="@font/kalam"
         android:textColor="#FF0000"
         android:background="@drawable/red_button"
         app:layout_constraintEnd_toEndOf="parent"

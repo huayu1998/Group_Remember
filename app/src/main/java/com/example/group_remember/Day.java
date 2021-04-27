@@ -11,8 +11,11 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.CompoundButton;
 import android.widget.ImageView;
+import android.widget.Switch;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
@@ -38,6 +41,7 @@ public class Day extends AppCompatActivity {
     Button editText;
     MediaPlayer mp;
     ImageView photo;
+    Switch musicOnOff;
 
     //接收信息
     ArrayList<Date> dateList;
@@ -68,6 +72,7 @@ public class Day extends AppCompatActivity {
         back = (Button) findViewById(R.id.back);
         button = (Button)findViewById(R.id.edit);
         photo = (ImageView)findViewById(R.id.photoiv);
+        musicOnOff = (Switch) findViewById(R.id.musicOnOff);
 
 
 
@@ -76,7 +81,7 @@ public class Day extends AppCompatActivity {
         setImage();
 
         // Play the music
-        if (!date.getMusic().isEmpty()) {
+        if (!date.getMusic().equals("null")) {
 
             if (date.getMusic().equals("Music1")) {
                 mp = MediaPlayer.create(Day.this, R.raw.song1);
@@ -100,6 +105,34 @@ public class Day extends AppCompatActivity {
             }
 
         }
+        else {
+            musicOnOff.setChecked(false);
+            musicOnOff.setText("Off");
+        }
+
+        // Turn the music on or off
+        musicOnOff.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                if (date.getMusic().equals("null")) {
+                    musicOnOff.setChecked(false);
+                    musicOnOff.setText("Off");
+                    Toast.makeText(Day.this, "Please select a music first.", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    if (isChecked == true) {
+                        musicOnOff.setText("On");
+                        mp.start();
+                    }
+                    else if (isChecked == false) {
+                        musicOnOff.setText("Off");
+                        mp.pause();
+                    }
+                }
+
+            }
+        });
 
         back.setOnClickListener(new View.OnClickListener() {
             @Override

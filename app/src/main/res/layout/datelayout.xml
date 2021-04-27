@@ -2,13 +2,24 @@
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    android:background="@color/light_blue">
+    android:background="@drawable/improve5">
 
     <TextView
         android:id="@+id/topic"
         android:layout_width="152dp"
         android:layout_height="59dp"
-        android:text="topic" />
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="2dp"
+        android:fontFamily="@font/kalam"
+        android:shadowColor="@color/blue"
+        android:shadowDx="6"
+        android:shadowDy="6"
+        android:shadowRadius="8"
+        android:text="topic"
+        android:textColor="@color/white"
+        android:textSize="20dp" />
 
     <TextView
         android:id="@+id/Date"
@@ -16,9 +27,11 @@
         android:layout_height="64dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:layout_marginStart="0dp"
-        android:layout_marginTop="62dp"
-        android:text="text" />
+        android:layout_marginStart="11dp"
+        android:layout_marginTop="61dp"
+        android:text="text"
+        android:fontFamily="@font/kalam"
+        android:textColor="@color/blue" />
 
     <TextView
         android:id="@+id/time"
@@ -28,6 +41,8 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="5dp"
         android:layout_marginEnd="5dp"
+        android:textColor="@color/purple_700"
+        android:fontFamily="@font/candal"
         android:text="time" />
 
     <android.widget.Button
@@ -38,6 +53,7 @@
         android:layout_alignParentEnd="true"
         android:layout_marginTop="62dp"
         android:layout_marginEnd="13dp"
+        android:fontFamily="@font/kalam"
         android:background="@drawable/custom_button"
         android:text="ViewDay"
         android:textColor="#FF3700B3" />
