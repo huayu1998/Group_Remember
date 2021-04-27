@@ -31,6 +31,10 @@ public class Date implements Serializable,Comparable {
         return photo;
     }
 
+    public void setPhoto(int photo) {
+        this.photo = photo;
+    }
+
 
     int sort = 0;
     String topic = "null";
@@ -50,7 +54,8 @@ public class Date implements Serializable,Comparable {
                 "/" + image +
                 "/" + music +
                 "/" + topic +
-                "/" + text + "/" +"\n";
+                "/" + text +
+                "/" + photo + "/" + "\n";
     }
 
     public String getTopic() {
