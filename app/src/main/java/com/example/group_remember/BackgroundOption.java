@@ -65,7 +65,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         backGround5 = (ImageView) findViewById(R.id.b5);
 
 
-        im = 0;
+
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
@@ -76,6 +76,8 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         version = intent.getStringExtra("version");
         date = dateList.get(number);
 
+
+        im = date.getImage();
         if(version.equals("old")){
             int i = date.getImage();
             RadioButton radioButton;
