@@ -1,5 +1,6 @@
 package com.example.group_remember;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -7,6 +8,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.drawable.Drawable;
 import android.media.MediaPlayer;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -26,9 +28,14 @@ import java.io.InputStream;
 import java.io.Serializable;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
+import java.time.Month;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.GregorianCalendar;
 
 public class Day extends AppCompatActivity {
 
@@ -49,6 +56,7 @@ public class Day extends AppCompatActivity {
     String version;
     Date date;
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -185,6 +193,7 @@ public class Day extends AppCompatActivity {
 
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     public void setInformation() {
 
         if (!date.getTopic().isEmpty() && !date.getTopic().equals("null")) {
@@ -196,8 +205,93 @@ public class Day extends AppCompatActivity {
         }
 
         if (date.getYear() != 0 && date.getMonth() != 0 && date.getDay() != 0) {
-            
-            time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear());
+
+            /*
+            String dateFormat = date.getDay() + "/" + date.getMonth() + "/" + date.getYear();
+            java.util.Date format = null;
+            try {
+                format = new SimpleDateFormat("dd/mm/yyyy").parse(dateFormat);
+            } catch (ParseException e) {
+                e.printStackTrace();
+            }
+
+             */
+
+            // Find the day of week
+            Calendar c = Calendar.getInstance();
+            c.set(date.getYear(), date.getMonth() - 1, date.getDay());
+            //c.setTime(format);
+            int dayOfWeek = c.get(c.DAY_OF_WEEK);
+
+            if (dayOfWeek == 1) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Sunday");
+            }
+            else if (dayOfWeek == 2) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Monday");
+            }
+            else if (dayOfWeek == 3) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Tuesday");
+            }
+            else if (dayOfWeek == 4) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Wednesday");
+            }
+            else if (dayOfWeek == 5) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Thursday");
+            }
+            else if (dayOfWeek == 6) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Friday");
+            }
+            else if (dayOfWeek == 7) {
+                time.setText(date.getMonth() + "/" + date.getDay() + "/" + date.getYear() + "  Saturday");
+            }
+
+            // Find how many day passed or will be coming
+            Calendar cal1 = new GregorianCalendar();
+            Calendar cal2 = new GregorianCalendar();
+            cal1.set(date.getYear(), date.getMonth() - 1, date.getDay());
+            LocalDate currentdate = LocalDate.now();
+            int month = 0;
+            if (currentdate.getMonth().equals(Month.JANUARY)) {
+                month = 1;
+            }
+            else if (currentdate.getMonth().equals(Month.FEBRUARY)) {
+                month = 2;
+            }
+            else if (currentdate.getMonth().equals(Month.MARCH)) {
+                month = 3;
+            }
+            else if (currentdate.getMonth().equals(Month.APRIL)) {
+                month = 4;
+            }
+            else if (currentdate.getMonth().equals(Month.MAY)) {
+                month = 5;
+            }
+            else if (currentdate.getMonth().equals(Month.JUNE)) {
+                month = 6;
+            }
+            else if (currentdate.getMonth().equals(Month.JULY)) {
+                month = 7;
+            }
+            else if (currentdate.getMonth().equals(Month.AUGUST)) {
+                month = 8;
+            }
+            else if (currentdate.getMonth().equals(Month.SEPTEMBER)) {
+                month = 9;
+            }
+            else if (currentdate.getMonth().equals(Month.OCTOBER)) {
+                month = 10;
+            }
+            else if (currentdate.getMonth().equals(Month.NOVEMBER)) {
+                month = 11;
+            }
+            else if (currentdate.getMonth().equals(Month.DECEMBER)) {
+                month = 12;
+            }
+            cal2.set(currentdate.getYear(), month - 1, currentdate.getDayOfMonth());
+
+            long numOfDays = (cal1.getTime().getTime() - cal2.getTime().getTime()) / (1000 * 60 * 60 * 24);
+            length.setText(numOfDays + "    Days");
+
         }
 
     }
