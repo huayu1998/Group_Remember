@@ -83,6 +83,11 @@ public class Day extends AppCompatActivity {
         button = (Button)findViewById(R.id.edit);
         photo = (ImageView)findViewById(R.id.photoiv);
         musicOnOff = (Switch) findViewById(R.id.musicOnOff);
+        musicOnOff.bringToFront();
+        message.bringToFront();
+        time.bringToFront();
+        length.bringToFront();
+        title.bringToFront();
 
 
 
