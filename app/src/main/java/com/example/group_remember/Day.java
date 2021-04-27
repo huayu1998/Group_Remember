@@ -290,7 +290,13 @@ public class Day extends AppCompatActivity {
             cal2.set(currentdate.getYear(), month - 1, currentdate.getDayOfMonth());
 
             long numOfDays = (cal1.getTime().getTime() - cal2.getTime().getTime()) / (1000 * 60 * 60 * 24);
-            length.setText(numOfDays + "    Days");
+
+            if (numOfDays <= 0) {
+                length.setText(Math.abs(numOfDays) + " Days Passed");
+            }
+            else if (numOfDays > 0) {
+                length.setText(Math.abs(numOfDays) + " Days In The Future");
+            }
 
         }
 
