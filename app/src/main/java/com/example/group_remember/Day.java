@@ -132,16 +132,16 @@ public class Day extends AppCompatActivity {
 
                 if (date.getMusic().equals("null")) {
                     musicOnOff.setChecked(false);
-                    musicOnOff.setText("Off");
+                    musicOnOff.setText("Music Off");
                     Toast.makeText(Day.this, "Please select a music first.", Toast.LENGTH_LONG).show();
                 }
                 else {
                     if (isChecked == true) {
-                        musicOnOff.setText("On");
+                        musicOnOff.setText("Music On");
                         mp.start();
                     }
                     else if (isChecked == false) {
-                        musicOnOff.setText("Off");
+                        musicOnOff.setText("Music Off");
                         mp.pause();
                     }
                 }
