@@ -207,7 +207,9 @@ public class PlayMusic extends AppCompatActivity {
                     intent.putExtra("dateList", (Serializable)dateList);
                     intent.putExtra("int",number);
                     intent.putExtra("version",version);
-                    mp.release();
+                    if(mp!=null) {
+                        mp.release();
+                    }
                     startActivity(intent);
                 }
             }

@@ -10,7 +10,11 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.io.Serializable;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 public class ChooseDate extends AppCompatActivity {
 
@@ -91,10 +95,23 @@ public class ChooseDate extends AppCompatActivity {
             return true;
         }
 
-        if (Integer.valueOf(inputYear.getText().toString()) >= 2016 && Integer.valueOf(inputYear.getText().toString()) <= 2026
-                && Integer.valueOf(inputMonth.getText().toString()) >= 1 && Integer.valueOf(inputMonth.getText().toString()) <= 12
-                && Integer.valueOf(inputDay.getText().toString()) >= 1 && Integer.valueOf(inputDay.getText().toString()) <= 31) {
+        String curdate = inputDay.getText().toString() + inputMonth.getText().toString() + inputYear.getText().toString();
 
+        boolean check = true;
+        Calendar cal = Calendar.getInstance();
+        cal.setLenient(false);
+        cal.set(Integer.valueOf(inputYear.getText().toString()),Integer.valueOf(inputMonth.getText().toString()) - 1,
+                Integer.valueOf(inputDay.getText().toString()));
+        try {
+            cal.getTime();
+        }
+        catch (Exception e) {
+            check = false;
+            System.out.println("Invalid date");
+        }
+
+
+        if (check){
             date.setYear(Integer.valueOf(inputYear.getText().toString()));
             date.setMonth(Integer.valueOf(inputMonth.getText().toString()));
             date.setDay(Integer.valueOf(inputDay.getText().toString()));
@@ -105,4 +122,18 @@ public class ChooseDate extends AppCompatActivity {
         }
         return validDate;
     }
+
+//    final static String DATE_FORMAT = "dd-MM-yyyy";
+
+//    public static boolean isDateValid(String date)
+//    {
+//        try {
+//            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
+//            df.setLenient(false);
+//            df.parse(date);
+//            return true;
+//        } catch (ParseException e) {
+//            return false;
+//        }
+//    }
 }

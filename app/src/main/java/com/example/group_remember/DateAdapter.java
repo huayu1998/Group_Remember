@@ -1,6 +1,7 @@
 package com.example.group_remember;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,6 +9,7 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.RequiresApi;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.ArrayList;
@@ -34,13 +36,6 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
         Date date = dates.get(position);
         holder.bind(date);
         holder.modify.setTag(position);
-//        holder.modify.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                Toast.makeText(context, "onclick" + position, Toast.LENGTH_LONG).show();
-//                addData(holder.getLayoutPosition());
-//            }
-//        });
     }
 
 
@@ -53,22 +48,24 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
     public class ViewHolder extends RecyclerView.ViewHolder{
 
         TextView topic;
-        TextView text;
+        TextView currentDate;
         TextView time;
         Button modify;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             topic = itemView.findViewById(R.id.topic);
-            text = itemView.findViewById(R.id.Date);
+            currentDate = itemView.findViewById(R.id.Date);
             time = itemView.findViewById(R.id.time);
             modify = itemView.findViewById(R.id.ViewDay);
             modify.setOnClickListener(DateAdapter.this);
 
         }
 
+        @RequiresApi(api = Build.VERSION_CODES.O)
         public void bind(Date date) {
             topic.setText(date.getTopic());
-            text.setText(date.getText());
+            currentDate.setText(date.getWeek());
+            time.setText(date.getlength());
         }
 
         public Button returnButton(){

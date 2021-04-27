@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.RadioButton;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
@@ -63,6 +64,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         backGround4 = (ImageView) findViewById(R.id.b4);
         backGround5 = (ImageView) findViewById(R.id.b5);
 
+        im = 1000;
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
@@ -217,14 +219,20 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
 //                intent.putExtra("int",number);
 //                intent.putExtra("version",version);
 //                startActivity(intent);
+                Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.finishb:
-                date.setImage(im);
-                intent = new Intent(BackgroundOption.this, EditEventOption.class);
-                intent.putExtra("dateList", (Serializable)dateList);
-                intent.putExtra("int",number);
-                intent.putExtra("version",version);
-                startActivity(intent);
+                if(im == 1000){
+                    Toast.makeText(this, "Please select a background or take a photo!", Toast.LENGTH_LONG).show();
+                }
+                else {
+                    date.setImage(im);
+                    intent = new Intent(BackgroundOption.this, EditEventOption.class);
+                    intent.putExtra("dateList", (Serializable) dateList);
+                    intent.putExtra("int", number);
+                    intent.putExtra("version", version);
+                    startActivity(intent);
+                }
                 break;
             case R.id.backb:
                 intent = new Intent(BackgroundOption.this, EditEventOption.class);
