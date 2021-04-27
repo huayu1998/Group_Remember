@@ -80,6 +80,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         button.setOnClickListener(this);
 
         Collections.sort(dateList);
+        try {
+            readerAndWriter.write(this,"data.txt",dateList);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     @Override
