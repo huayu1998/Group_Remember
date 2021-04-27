@@ -196,7 +196,7 @@
         android:layout_marginTop="609dp"
         android:layout_marginEnd="292dp"
         android:background="@drawable/red_button"
-        android:text="back"
+        android:text="cancel"
         android:fontFamily="@font/kalam"
         android:textColor="#FF0000"
         app:layout_constraintEnd_toEndOf="parent"
