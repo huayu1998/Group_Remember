@@ -14,12 +14,13 @@ import java.time.Month;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
 
-public class Date implements Serializable {
+public class Date implements Serializable,Comparable {
 
     int year = 0;
     int month = 0;
     int day = 0;
     int image = 0;
+    int sort = 0;
     String topic = "null";
     String text = "null";
     String music = "null";
@@ -200,14 +201,23 @@ public class Date implements Serializable {
 
     }
 
+    public int getSort(){
+        sort = this.getYear()*365 + this.getMonth()*31 + this.getDay();
+        return sort;
+    }
 
 
+    @Override
+    public int compareTo(Object o) {
+        if(sort == ((Date) o).getSort()){
+            return 0;
+        }
+        else if(sort > ((Date) o).getSort()){
+            return 1;
+        }else{
+            return -1;
+        }
 
-
-
-
-
-
-
+    }
 }
 

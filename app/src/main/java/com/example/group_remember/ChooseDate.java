@@ -1,8 +1,10 @@
 package com.example.group_remember;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import java.io.Serializable;
 import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.Calendar;
 
@@ -21,7 +24,7 @@ public class ChooseDate extends AppCompatActivity {
      EditText inputYear;
      EditText inputMonth;
      EditText inputDay;
-     Button back, finish;
+     Button back, finish, choosetoday;
     boolean validDate = false;
 
     //接收信息
@@ -51,6 +54,7 @@ public class ChooseDate extends AppCompatActivity {
         inputDay = (EditText) findViewById(R.id.dayInput);
         back = (Button) findViewById(R.id.back);
         finish = (Button) findViewById(R.id.FinishDate);
+        choosetoday = (Button) findViewById(R.id.choosetoday);
 
         if(version.equals("old")){
             inputYear.setText(date.getYear() + "");
@@ -83,6 +87,24 @@ public class ChooseDate extends AppCompatActivity {
                     intent.putExtra("version",version);
                     startActivity(intent);
                 }
+            }
+        });
+
+        choosetoday.setOnClickListener(new View.OnClickListener() {
+            @RequiresApi(api = Build.VERSION_CODES.O)
+            @Override
+            public void onClick(View v) {
+
+                LocalDate currentdate = LocalDate.now();
+
+                date.setYear(currentdate.getYear());
+                date.setMonth(currentdate.getMonthValue());
+                date.setDay(currentdate.getDayOfMonth());
+                Intent intent = new Intent(ChooseDate.this, EditEventOption.class);
+                intent.putExtra("dateList", (Serializable)dateList);
+                intent.putExtra("int",number);
+                intent.putExtra("version",version);
+                startActivity(intent);
             }
         });
 
