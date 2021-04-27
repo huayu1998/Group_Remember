@@ -64,7 +64,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         backGround4 = (ImageView) findViewById(R.id.b4);
         backGround5 = (ImageView) findViewById(R.id.b5);
 
-        im = 1000;
+        im = date.getImage();
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
@@ -222,7 +222,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
                 Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.finishb:
-                if(im == 1000){
+                if(im == 0){
                     Toast.makeText(this, "Please select a background or take a photo!", Toast.LENGTH_LONG).show();
                 }
                 else {
