@@ -256,7 +256,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             System.out.println("check");
             Bundle extras = data.getExtras();
             Bitmap thumbnail = (Bitmap) extras.get("data");
-            saveBitmap(number+"",thumbnail,this);
+            saveBitmap(date.getPhoto()+"",thumbnail,this);
         }
     }
 }
