@@ -132,15 +132,15 @@ public class Day extends AppCompatActivity {
             }
         });
 
-        //music = (FloatingActionButton)findViewById(R.id.musicFab);
+//        FloatingActionButton music = (FloatingActionButton)findViewById(R.id.musicOnOff);
 
-        //music.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-      //      public void onClick(View v) {
-       //         Intent intent = new Intent(Day.this, PlayMusic.class);
-       //         startActivity(intent);
-       //     }
-      //  });
+//        music.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//
+//            }
+//        });
       //  editText = (Button)findViewById(R.id.editb);
       //  editText.setOnClickListener(new View.OnClickListener() {
        //     @Override
@@ -155,7 +155,7 @@ public class Day extends AppCompatActivity {
     public void setInformation() {
 
         if (!date.getTopic().isEmpty() && !date.getTopic().equals("null")) {
-            title.setText(date.getText());
+            title.setText(date.getTopic());
         }
 
         if (!date.getText().isEmpty() && !date.getText().equals("null")) {

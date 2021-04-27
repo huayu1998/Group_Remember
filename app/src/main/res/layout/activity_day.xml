@@ -71,14 +71,14 @@
         android:id="@+id/edit"
         android:layout_width="80dp"
         android:layout_height="43dp"
-        android:layout_marginStart="228dp"
+        android:layout_marginStart="300dp"
         android:layout_marginTop="8dp"
         android:background="@drawable/custom_button"
         android:text="edit"
         android:textColor="#FF3700B3"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.666"
-        app:layout_constraintStart_toEndOf="@+id/back"
+        app:layout_constraintHorizontal_bias="0.384"
+        app:layout_constraintStart_toStartOf="@+id/back"
         app:layout_constraintTop_toTopOf="parent" />
 
     <android.widget.Button
