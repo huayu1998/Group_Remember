@@ -77,7 +77,6 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         date = dateList.get(number);
 
         if(version.equals("old")){
-            im = date.getImage();
             int i = date.getImage();
             RadioButton radioButton;
             switch (i) {
