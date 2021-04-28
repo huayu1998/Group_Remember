@@ -67,8 +67,8 @@
 
     <ImageView
         android:id="@+id/photoiv"
-        android:layout_width="412dp"
-        android:layout_height="729dp"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
         android:scaleType="fitXY"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -81,10 +81,10 @@
         android:layout_width="80dp"
         android:layout_height="43dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/custom_button"
+        android:background="@drawable/rad_button"
         android:fontFamily="@font/kalam"
         android:text="edit"
-        android:textColor="#FF3700B3"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.981"
         app:layout_constraintStart_toStartOf="parent"

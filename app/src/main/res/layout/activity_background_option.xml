@@ -187,14 +187,14 @@
 
     <android.widget.Button
         android:id="@+id/backb"
-        android:layout_width="120dp"
+        android:layout_width="wrap_content"
         android:layout_height="60dp"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
         android:layout_alignParentEnd="true"
         android:layout_marginStart="17dp"
         android:layout_marginTop="609dp"
-        android:layout_marginEnd="292dp"
+        android:layout_marginEnd="271dp"
         android:background="@drawable/red_button"
         android:fontFamily="@font/kalam"
         android:text="cancel"
