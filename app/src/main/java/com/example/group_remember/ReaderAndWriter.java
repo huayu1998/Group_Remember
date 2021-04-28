@@ -57,6 +57,7 @@ public class ReaderAndWriter {
                     currentDate.setMusic(lineInfo[4]);
                     currentDate.setTopic(lineInfo[5]);
                     currentDate.setText(lineInfo[6]);
+                    currentDate.setPhoto(Integer.parseInt(lineInfo[7]));
                     datelist.add(currentDate);
                     numOfLines++;
                 } // while

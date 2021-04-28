@@ -242,7 +242,7 @@ public class Day extends AppCompatActivity {
                     photo.setImageResource(R.drawable.background_6);
                     break;
                 case -1:
-                    String TargetPath = this.getFilesDir() + "/images/"+ number + ".jpg";
+                    String TargetPath = this.getFilesDir() + "/images/"+ date.getPhoto() + ".jpg";
                     Bitmap bitmap = getLoacalBitmap(TargetPath);
                     photo.setImageBitmap(bitmap);
                     break;

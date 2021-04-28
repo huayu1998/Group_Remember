@@ -13,6 +13,7 @@ import java.time.LocalDate;
 import java.time.Month;
 import java.util.Calendar;
 import java.util.GregorianCalendar;
+import java.util.Random;
 
 public class Date implements Serializable,Comparable {
 
@@ -20,6 +21,21 @@ public class Date implements Serializable,Comparable {
     int month = 0;
     int day = 0;
     int image = 0;
+
+    Random rand = new Random();
+
+    // Generate random integers in range 0 to 999
+    int photo = rand.nextInt(10000);
+
+    public int getPhoto() {
+        return photo;
+    }
+
+    public void setPhoto(int photo) {
+        this.photo = photo;
+    }
+
+
     int sort = 0;
     String topic = "null";
     String text = "null";
@@ -38,7 +54,8 @@ public class Date implements Serializable,Comparable {
                 "/" + image +
                 "/" + music +
                 "/" + topic +
-                "/" + text + "/" +"\n";
+                "/" + text +
+                "/" + photo + "/" + "\n";
     }
 
     public String getTopic() {
