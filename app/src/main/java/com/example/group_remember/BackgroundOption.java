@@ -224,7 +224,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
 //                intent.putExtra("int",number);
 //                intent.putExtra("version",version);
 //                startActivity(intent);
-                Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
+                //Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.finishb:
                 if(im == 0){
@@ -257,6 +257,9 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             Bundle extras = data.getExtras();
             Bitmap thumbnail = (Bitmap) extras.get("data");
             saveBitmap(date.getPhoto()+"",thumbnail,this);
+        }
+        else {
+            im = date.getImage();
         }
     }
 }
