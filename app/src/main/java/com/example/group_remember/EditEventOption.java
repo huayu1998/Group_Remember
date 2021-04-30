@@ -16,7 +16,6 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
 
     Button back, done, addTextContent, chooseDate, backgroundOption, addMusic,delete;
 
-    //接收信息
     ArrayList<Date> dateList;
     int number;
     String version;
@@ -27,12 +26,11 @@ public class EditEventOption extends AppCompatActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //接收信息
         Intent intent = getIntent();
-        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
+        Serializable serializable = getIntent().getSerializableExtra("dateList");
         if(serializable != null) {
             dateList = new ArrayList<Date>();
-            dateList.addAll((ArrayList<Date>) serializable);//之后将serializable对象强转使用即可
+            dateList.addAll((ArrayList<Date>) serializable);
         }
         number = intent.getIntExtra("int",0);
         version = intent.getStringExtra("version");

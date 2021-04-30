@@ -45,13 +45,11 @@ public class Day extends AppCompatActivity {
     TextView time;
     TextView message;
     Button back, button;
-    //FloatingActionButton music;
     Button editText;
     MediaPlayer mp;
     ImageView photo;
     Switch musicOnOff;
 
-    //接收信息
     ArrayList<Date> dateList;
     int number;
     String version;
@@ -64,7 +62,6 @@ public class Day extends AppCompatActivity {
         setContentView(R.layout.activity_day);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //接收信息
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {
@@ -89,9 +86,6 @@ public class Day extends AppCompatActivity {
         length.bringToFront();
         title.bringToFront();
 
-
-
-        // Set the Text Information
         setInformation();
         setImage();
 
@@ -180,23 +174,6 @@ public class Day extends AppCompatActivity {
             }
         });
 
-//        FloatingActionButton music = (FloatingActionButton)findViewById(R.id.musicOnOff);
-
-//        music.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//
-//
-//            }
-//        });
-      //  editText = (Button)findViewById(R.id.editb);
-      //  editText.setOnClickListener(new View.OnClickListener() {
-       //     @Override
-       //     public void onClick(View v) {
-       //         Intent intent = new Intent(Day.this, EventEdit.class);
-        //        startActivity(intent);
-       //     }
-       // });
 
     }
 
@@ -220,7 +197,6 @@ public class Day extends AppCompatActivity {
 
     public void setImage() {
         if (date.getImage() != 0) {
-            //Drawable im = (Drawable)findViewById(date.getImage());
             int i = date.getImage();
             switch (i) {
                 case 1:
@@ -255,7 +231,7 @@ public class Day extends AppCompatActivity {
             FileInputStream fis = null;
             try {
                 fis = new FileInputStream(url);
-                return BitmapFactory.decodeStream(fis); // /把流转化为Bitmap图片
+                return BitmapFactory.decodeStream(fis);
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
                 return null;

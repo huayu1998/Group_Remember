@@ -31,6 +31,7 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
         return new ViewHolder(movieView);
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
         Date date = dates.get(position);
@@ -87,7 +88,6 @@ public class DateAdapter extends RecyclerView.Adapter<DateAdapter.ViewHolder> im
 
     @Override
     public void onClick(View v) {
-        //注意这里使用getTag方法获取数据
         int position = (int) v.getTag();
         if (mOnItemClickListener != null) {
             switch (v.getId()){

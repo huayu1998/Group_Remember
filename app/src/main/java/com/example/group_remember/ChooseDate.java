@@ -28,7 +28,6 @@ public class ChooseDate extends AppCompatActivity {
      Button back, finish, choosetoday;
     boolean validDate = false;
 
-    //接收信息
     ArrayList<Date> dateList;
     int number;
     String version;
@@ -40,12 +39,11 @@ public class ChooseDate extends AppCompatActivity {
         setContentView(R.layout.activity_choose_date);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //接收信息
         Intent intent = getIntent();
-        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
+        Serializable serializable = getIntent().getSerializableExtra("dateList");
         if(serializable != null) {
             dateList = new ArrayList<Date>();
-            dateList.addAll((ArrayList<Date>) serializable);//之后将serializable对象强转使用即可
+            dateList.addAll((ArrayList<Date>) serializable);
         }
         number = intent.getIntExtra("int",0);
         version = intent.getStringExtra("version");
@@ -146,18 +144,4 @@ public class ChooseDate extends AppCompatActivity {
         }
         return validDate;
     }
-
-//    final static String DATE_FORMAT = "dd-MM-yyyy";
-
-//    public static boolean isDateValid(String date)
-//    {
-//        try {
-//            DateFormat df = new SimpleDateFormat(DATE_FORMAT);
-//            df.setLenient(false);
-//            df.parse(date);
-//            return true;
-//        } catch (ParseException e) {
-//            return false;
-//        }
-//    }
 }

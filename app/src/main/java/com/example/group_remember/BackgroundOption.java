@@ -67,12 +67,11 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         backGround5 = (ImageView) findViewById(R.id.b5);
 
 
-
         Intent intent = getIntent();
-        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
+        Serializable serializable = getIntent().getSerializableExtra("dateList");
         if(serializable != null) {
             dateList = new ArrayList<Date>();
-            dateList.addAll((ArrayList<Date>) serializable);//之后将serializable对象强转使用即可
+            dateList.addAll((ArrayList<Date>) serializable);
         }
         number = intent.getIntExtra("int",0);
         version = intent.getStringExtra("version");
@@ -139,10 +138,8 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
     }
     static void saveBitmap(String name, Bitmap bm, Context mContext) {
         Log.d("Save Bitmap", "Ready to save picture");
-        //指定我们想要存储文件的地址
         String TargetPath = mContext.getFilesDir() + "/images/";
         Log.d("Save Bitmap", "Save Path=" + TargetPath);
-            //如果指定文件夹创建成功，那么我们则需要进行图片存储操作
         File appDir = new File(TargetPath);
         if (!appDir.exists()) {
             appDir.mkdir();
@@ -150,9 +147,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
         File saveFile = new File(TargetPath, name + ".jpg");
         try {
                 FileOutputStream saveImgOut = new FileOutputStream(saveFile);
-                // compress - 压缩的意思
                 bm.compress(Bitmap.CompressFormat.JPEG, 100, saveImgOut);
-                //存储完成后需要清除相关的进程
                 saveImgOut.flush();
                 saveImgOut.close();
                 Log.d("Save Bitmap", "The picture is save to your phone!");
@@ -161,24 +156,6 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             }
     }
 
-//    public static File saveImage(Bitmap bmp, String path, String fileName) {
-//        File appDir = new File(path);
-//        if (!appDir.exists()) {
-//            appDir.mkdir();
-//        }
-//        File file = new File(appDir, fileName);
-//        try {
-//            FileOutputStream fos = new FileOutputStream(file);
-//            bmp.compress(Bitmap.CompressFormat.JPEG, 100, fos);
-//            fos.flush();
-//            fos.close();
-//        } catch (FileNotFoundException e) {
-//            e.printStackTrace();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        return file;
-//    }
 
     public void radioClicked(View view) {
         switch(view.getId()) {
@@ -219,12 +196,6 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
 
                     }
                 im = -1;
-//                intent = new Intent(BackgroundOption.this, EditEventOption.class);
-//                intent.putExtra("dateList", (Serializable)dateList);
-//                intent.putExtra("int",number);
-//                intent.putExtra("version",version);
-//                startActivity(intent);
-                //Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
                 break;
             case R.id.finishb:
                 if(im == 0){
@@ -257,6 +228,7 @@ public class BackgroundOption extends AppCompatActivity implements View.OnClickL
             Bundle extras = data.getExtras();
             Bitmap thumbnail = (Bitmap) extras.get("data");
             saveBitmap(date.getPhoto()+"",thumbnail,this);
+            Toast.makeText(this, "Your photo has been saved!", Toast.LENGTH_LONG).show();
         }
         else {
             im = date.getImage();

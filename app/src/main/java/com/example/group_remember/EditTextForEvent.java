@@ -22,7 +22,6 @@ public class EditTextForEvent extends AppCompatActivity{
     EditText editText;
     boolean validTitleNDescription = false;
 
-    //接收信息
     ArrayList<Date> dateList;
     int number;
     String version;
@@ -34,7 +33,6 @@ public class EditTextForEvent extends AppCompatActivity{
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
         setContentView(R.layout.activity_edit_text);
 
-        //接收信息
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {

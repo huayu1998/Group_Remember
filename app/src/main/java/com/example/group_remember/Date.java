@@ -24,7 +24,6 @@ public class Date implements Serializable,Comparable {
 
     Random rand = new Random();
 
-    // Generate random integers in range 0 to 999
     int photo = rand.nextInt(10000);
 
     public int getPhoto() {
@@ -156,7 +155,6 @@ public class Date implements Serializable,Comparable {
     public String getlength(){
         Calendar c = Calendar.getInstance();
         c.set(this.getYear(), this.getMonth() - 1, this.getDay());
-        //c.setTime(format);
         int dayOfWeek = c.get(c.DAY_OF_WEEK);
 
         // Find how many day passed or will be coming

@@ -26,7 +26,7 @@ public class PlayMusic extends AppCompatActivity {
     boolean musicSelected = false;
     MediaPlayer mp;
 
-    //接收信息
+
     ArrayList<Date> dateList;
     int number;
     String version;
@@ -38,7 +38,7 @@ public class PlayMusic extends AppCompatActivity {
         setContentView(R.layout.activity_play_music);
         setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
-        //接收信息
+
         Intent intent = getIntent();
         Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
         if(serializable != null) {

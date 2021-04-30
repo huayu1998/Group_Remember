@@ -41,12 +41,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         this.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
 
 
-        //读取
+
         Intent intent = getIntent();
-        Serializable serializable = getIntent().getSerializableExtra("dateList");//在另一个activity中用于获取对象
+        Serializable serializable = getIntent().getSerializableExtra("dateList");
         if(serializable != null) {
             dateList = new ArrayList<Date>();
-            dateList.addAll((ArrayList<Date>)serializable);//之后将serializable对象强转使用即可
+            dateList.addAll((ArrayList<Date>)serializable);
         }else{
             try {
                 dateList = readerAndWriter.read(this,"data.txt");
